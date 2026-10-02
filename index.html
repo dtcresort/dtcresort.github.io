@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DTC Resort · Residences · Međugorje</title>
+<meta name="description" content="DTC Resort Residences, Međugorje. 52 apartmana uz bazene, lagunu i DTC Indoor Arenu. Pretprodaja je otvorena.">
+<meta property="og:title" content="DTC Resort · Residences">
+<meta property="og:description" content="52 apartmana uz bazene, lagunu i DTC Indoor Arenu. Međugorje. Pretprodaja je otvorena.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dtcresort.github.io/">
+<meta property="og:image" content="https://dtcresort.github.io/slike/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tamna:#191614; --tamna2:#24201d; --krem:#f4eee5; --krem2:#e9e0d2; --drvo:#8a5a3b; --drvo2:#b4825a;
+  --voda:#35b7bd; --tekst:#2a2522; --siva:#8b827a; --bijela:#fffdf9;
+  --serif:"Cormorant Garamond", Georgia, serif; --sans:"Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;background:var(--tamna)}
+body{font-family:var(--sans);color:var(--tekst);background:var(--tamna);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+section{position:relative;min-height:100vh;scroll-snap-align:start;overflow:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.01em}
+.nad{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500}
+.sadrzaj{max-width:1320px;margin:0 auto;padding:0 5vw}
+
+/* pojava pri skrolu */
+.pojava{opacity:0;transform:translateY(40px);transition:opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.vidljivo .pojava,.pojava.vidljivo{opacity:1;transform:none}
+.k1{transition-delay:.15s}.k2{transition-delay:.3s}.k3{transition-delay:.45s}.k4{transition-delay:.6s}
+
+/* 1 naslovna */
+#naslovna{height:100vh;display:flex;align-items:flex-end;color:var(--bijela)}
+.pozadina{position:absolute;inset:0;background-size:cover;background-position:center}
+#naslovna .pozadina{animation:zum 22s ease-out forwards;transform-origin:60% 55%}
+@keyframes zum{from{transform:scale(1.16)}to{transform:scale(1.0)}}
+.zasjena{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,10,.35) 0%,rgba(15,12,10,0) 30%,rgba(15,12,10,.1) 55%,rgba(15,12,10,.82) 100%)}
+.naslov-blok{position:relative;padding:0 6vw 11vh;width:100%}
+.naslov-blok .nad{color:var(--krem2);opacity:.9}
+.naslov-blok h1{font-size:clamp(3.6rem,11vw,10.5rem);line-height:.9;font-weight:500;margin:.25em 0 .12em;letter-spacing:.02em}
+.naslov-blok h1 span{display:block;font-size:.34em;letter-spacing:.42em;font-family:var(--sans);font-weight:300;margin-top:.5em;padding-left:.2em}
+.naslov-blok p{font-size:clamp(1rem,1.5vw,1.3rem);max-width:640px;line-height:1.6;font-weight:300;opacity:.92}
+.logo-traka{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:28px 6vw;color:var(--bijela);z-index:5}
+.logo-traka b{font-family:var(--serif);font-size:1.5rem;letter-spacing:.18em;font-weight:600}
+.logo-traka a.jezik{margin-right:12px;border-color:transparent}
+.logo-traka a{color:var(--bijela);text-decoration:none;border:1px solid rgba(255,255,255,.55);padding:10px 22px;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.strelica{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(var(--bijela),transparent);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:1}}
+
+/* 2 uvod + brojke */
+#uvod{background:var(--krem);display:flex;align-items:center}
+#uvod .sadrzaj{display:grid;grid-template-columns:1.1fr 1fr;gap:6vw;align-items:center;padding-top:10vh;padding-bottom:10vh}
+#uvod h2{font-size:clamp(2.4rem,4.6vw,4.4rem);line-height:1.05;color:var(--tamna)}
+#uvod h2 em{color:var(--drvo)}
+#uvod p{font-size:1.08rem;line-height:1.8;color:#554c45;margin-top:1.6em;max-width:560px}
+.brojke{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--krem2);border:1px solid var(--krem2)}
+.brojke div{background:var(--krem);padding:34px 28px}
+.brojke b{display:block;font-family:var(--serif);font-size:clamp(3rem,5vw,4.6rem);font-weight:500;color:var(--drvo);line-height:1}
+.brojke span{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--siva)}
+
+/* velike slike s natpisom */
+.puna{height:100vh;color:var(--bijela);display:flex;align-items:flex-end}
+.puna .pozadina{transform:scale(1.08);transition:transform 6s ease-out}
+.puna.vidljivo .pozadina{transform:scale(1)}
+.puna .tekst{position:relative;padding:0 6vw 10vh;max-width:760px}
+.puna h2{font-size:clamp(2.6rem,6vw,5.6rem);line-height:1}
+.puna p{margin-top:1em;font-size:1.1rem;line-height:1.7;font-weight:300;opacity:.95}
+.puna .zasjena{background:linear-gradient(180deg,rgba(15,12,10,0) 40%,rgba(15,12,10,.78) 100%)}
+
+/* resort plan iz zraka */
+#resort{background:var(--tamna);color:var(--krem);display:flex;align-items:center;padding:9vh 0}
+#resort .sadrzaj{display:grid;grid-template-columns:380px 1fr;gap:4vw;align-items:center;width:100%;max-width:1640px}
+#resort h2{font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.05}
+#resort p{color:#bfb4a8;line-height:1.7;margin:1.2em 0 1.6em}
+.popis-t li{list-style:none;display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;transition:color .3s;font-size:.98rem}
+.popis-t li:hover,.popis-t li.akt{color:var(--bijela)}
+.popis-t li i{font-style:normal;width:28px;height:28px;border-radius:50%;border:1px solid var(--drvo2);display:grid;place-items:center;font-size:.8rem;color:var(--drvo2);flex:none;transition:all .3s}
+.popis-t li.akt i,.popis-t li:hover i{background:var(--drvo2);color:var(--tamna)}
+.karta{position:relative;border-radius:4px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.karta img{width:100%}
+.tocka{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:var(--drvo2);color:var(--tamna);display:grid;place-items:center;font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:0 0 0 0 rgba(180,130,90,.7);animation:puls 2.6s infinite;transition:transform .3s}
+.tocka:hover,.tocka.akt{transform:scale(1.25);background:var(--bijela)}
+@keyframes puls{0%{box-shadow:0 0 0 0 rgba(180,130,90,.7)}70%{box-shadow:0 0 0 18px rgba(180,130,90,0)}100%{box-shadow:0 0 0 0 rgba(180,130,90,0)}}
+.oblak{margin-top:26px;min-height:112px;background:rgba(255,255,255,.04);padding:18px 22px;border-left:3px solid var(--drvo2);font-size:.95rem;line-height:1.6;opacity:0;transform:translateY(10px);transition:all .4s}
+.oblak.akt{opacity:1;transform:none}
+.oblak b{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:500;margin-bottom:.2em;color:var(--bijela)}
+
+/* galerija dva kadra */
+.dvije{display:grid;grid-template-columns:1.35fr 1fr;height:100vh;background:var(--tamna)}
+.dvije .kadar{position:relative;overflow:hidden}
+.dvije .kadar .pozadina{transition:transform 8s ease-out;transform:scale(1.1)}
+.dvije.vidljivo .kadar .pozadina{transform:scale(1)}
+.dvije .desno{display:grid;grid-template-rows:1fr 1fr}
+.dvije .kadar .natpis{position:absolute;left:28px;bottom:24px;color:var(--bijela);font-family:var(--serif);font-size:1.7rem;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.dvije .kadar .natpis small{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+
+/* zgrada */
+#zgrada{background:var(--krem);display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+#zgrada .slika{position:relative}
+#zgrada .opis{padding:12vh 6vw;display:flex;flex-direction:column;justify-content:center}
+#zgrada h2{font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.05;color:var(--tamna)}
+#zgrada p{line-height:1.8;color:#554c45;margin:1.4em 0}
+.crtice li{list-style:none;padding:12px 0;border-bottom:1px solid var(--krem2);display:flex;justify-content:space-between;gap:20px;font-size:.98rem}
+.crtice li b{font-weight:500;color:var(--tamna);text-align:right}
+
+/* apartmani */
+#apartmani{background:var(--bijela);padding:11vh 0}
+#apartmani h2{font-size:clamp(2.6rem,4.5vw,4.2rem);color:var(--tamna);line-height:1.05}
+.tabovi{display:flex;gap:10px;margin:2.4em 0 2.6em;flex-wrap:wrap}
+.tabovi button{font-family:var(--sans);background:none;border:1px solid var(--krem2);padding:14px 26px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:var(--siva);transition:all .3s}
+.tabovi button.akt{background:var(--tamna);color:var(--bijela);border-color:var(--tamna)}
+.tip{display:none;grid-template-columns:1.15fr 1fr;gap:5vw;align-items:center}
+.tip.akt{display:grid;animation:ulaz .8s ease}
+@keyframes ulaz{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.tip .plan{background:#fbf8f3;padding:3vw;border:1px solid var(--krem2)}
+.tip .plan img{margin:0 auto;max-height:68vh;width:auto}
+.tip h3{font-size:clamp(2.2rem,3.4vw,3.2rem);color:var(--tamna);line-height:1}
+.tip .povrsina{font-family:var(--serif);font-size:clamp(3.4rem,6vw,5.4rem);color:var(--drvo);line-height:1;margin:.25em 0 .1em}
+.tip .povrsina small{font-size:.35em;color:var(--siva);font-family:var(--sans);letter-spacing:.1em}
+.tip .mala{color:var(--siva);font-size:.92rem;line-height:1.6;margin-bottom:1.6em}
+.sobe li{list-style:none;display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--krem2);font-size:.98rem}
+.sobe li span:last-child{font-variant-numeric:tabular-nums;color:var(--tamna);font-weight:500}
+.sobe li.uk{border-bottom:none;border-top:2px solid var(--tamna);margin-top:6px;font-weight:600}
+.oznaka-kolicina{display:inline-block;margin-top:1.6em;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--drvo)}
+
+/* shema kata */
+#katovi{background:var(--krem);padding:11vh 0}
+#katovi h2{font-size:clamp(2.4rem,4vw,3.8rem);color:var(--tamna);line-height:1.05}
+#katovi p.uvodni{color:#554c45;line-height:1.7;margin:1em 0 2em;max-width:720px}
+.shema{background:var(--bijela);padding:2.5vw;border:1px solid var(--krem2);box-shadow:0 30px 60px rgba(60,40,20,.08)}
+.legenda{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px;font-size:.88rem;color:#554c45}
+.legenda span{display:flex;align-items:center;gap:10px}
+.legenda i{width:22px;height:14px;display:inline-block}
+
+/* standard */
+#standard{background:var(--tamna);color:var(--krem);padding:12vh 0}
+#standard h2{font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.05}
+.mreza{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:3.5em;border:1px solid rgba(255,255,255,.08)}
+.mreza div{background:var(--tamna);padding:34px 28px 38px;transition:background .4s}
+.mreza div:hover{background:var(--tamna2)}
+.mreza svg{width:36px;height:36px;stroke:var(--drvo2);fill:none;stroke-width:1.3;margin-bottom:20px}
+.mreza b{display:block;font-family:var(--serif);font-size:1.45rem;font-weight:500;color:var(--bijela);margin-bottom:.35em}
+.mreza span{color:#a99e92;font-size:.92rem;line-height:1.6}
+
+/* cijene */
+#cijene{background:var(--bijela);padding:12vh 0}
+#cijene h2{font-size:clamp(2.4rem,4vw,3.8rem);color:var(--tamna);line-height:1.05}
+.cijena-velika{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:3em}
+.faza{border:1px solid var(--krem2);padding:36px 30px;position:relative}
+.faza.akt{background:var(--tamna);color:var(--krem);border-color:var(--tamna)}
+.faza .nad{color:var(--drvo2)}
+.faza b{display:block;font-family:var(--serif);font-size:3.6rem;font-weight:500;line-height:1;margin:.3em 0 .1em}
+.faza b small{font-size:.35em;font-family:var(--sans);font-weight:400;letter-spacing:.05em}
+.faza p{font-size:.92rem;line-height:1.6;opacity:.8}
+.faza .znak{position:absolute;top:-12px;right:24px;background:var(--voda);color:var(--bijela);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px}
+.uvjeti{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;margin-top:34px;padding:22px 0;border-top:1px solid var(--krem2);border-bottom:1px solid var(--krem2)}
+.uvjeti span{font-family:var(--serif);font-size:1.45rem;color:var(--tekst);line-height:1.3}
+.uvjeti a{padding:12px 22px;background:#1f7a4d;color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.placanje{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px;border-top:1px solid var(--krem2)}
+.placanje div{padding:26px 26px 0 0}
+.placanje b{font-family:var(--serif);font-size:2.8rem;color:var(--drvo);font-weight:500}
+.placanje span{display:block;color:#554c45;line-height:1.6;font-size:.95rem}
+.primjer{margin-top:34px;background:var(--krem);padding:24px 28px;display:flex;gap:40px;flex-wrap:wrap;font-size:.98rem;color:#554c45}
+.primjer strong{color:var(--tamna);font-weight:600}
+
+/* lokacija */
+#lokacija{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;background:var(--krem)}
+#lokacija .opis{padding:12vh 6vw;display:flex;flex-direction:column;justify-content:center}
+#lokacija h2{font-size:clamp(2.4rem,4vw,3.8rem);color:var(--tamna);line-height:1.05}
+#lokacija p{line-height:1.8;color:#554c45;margin:1.4em 0}
+.gumb{display:inline-block;align-self:flex-start;background:var(--tamna);color:var(--bijela);text-decoration:none;padding:16px 30px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:background .3s}
+.gumb:hover{background:var(--drvo)}
+
+/* kraj */
+#kraj{height:100vh;color:var(--bijela);display:flex;align-items:center;justify-content:center;text-align:center}
+#kraj .zasjena{background:rgba(12,10,9,.55)}
+#kraj .tekst{position:relative;padding:0 6vw}
+#kraj h2{font-size:clamp(3rem,8vw,7rem);line-height:.95;letter-spacing:.04em}
+#kraj p{margin:1.4em auto 2.4em;max-width:560px;line-height:1.7;opacity:.9;font-weight:300}
+#kraj .kontakt{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+#kraj .kontakt a{color:var(--bijela);text-decoration:none;border:1px solid rgba(255,255,255,.6);padding:15px 28px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;transition:all .3s}
+#kraj .kontakt a:hover{background:var(--bijela);color:var(--tamna)}
+#kraj small{display:block;margin-top:4em;opacity:.55;font-size:.75rem;letter-spacing:.1em}
+
+/* navigacija točkama */
+.tockice{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:12px}
+.tockice a{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(0,0,0,.15);transition:all .3s}
+.tockice a.akt{background:var(--drvo2);transform:scale(1.4)}
+.puni-ekran{position:fixed;left:22px;bottom:20px;z-index:20;background:rgba(25,22,20,.6);color:#fff;border:0;padding:9px 13px;font-size:.7rem;letter-spacing:.15em;cursor:pointer;backdrop-filter:blur(6px)}
+
+
+/* video */
+.vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#1b1714}
+#film{height:100vh;background:#0d0b0a;color:var(--bijela);display:flex;align-items:center;justify-content:center}
+#film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#film .preko{position:relative;text-align:center;padding:0 6vw;transition:opacity .6s}
+#film.igra .preko{opacity:0;pointer-events:none}
+#film h2{font-size:clamp(2.6rem,6vw,5.4rem);line-height:1}
+#film .play{margin-top:34px;width:96px;height:96px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.08);
+  backdrop-filter:blur(6px);color:#fff;cursor:pointer;display:inline-grid;place-items:center;transition:transform .4s,background .4s}
+#film .play:hover{transform:scale(1.08);background:rgba(255,255,255,.2)}
+#film .play svg{width:30px;height:30px;margin-left:6px;fill:#fff}
+#film .zasjena{background:rgba(10,8,7,.45);transition:opacity .6s}
+#film.igra .zasjena{opacity:0}
+#trenuci{background:var(--tamna);color:var(--krem);padding:12vh 0}
+#trenuci h2{font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.05}
+.trake{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:3em}
+.traka{position:relative;aspect-ratio:3/4;overflow:hidden;max-width:100%}
+.traka .natpis{position:absolute;left:22px;bottom:20px;font-family:var(--serif);font-size:1.6rem;color:var(--bijela);text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.traka .natpis small{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+/* ODABIR */
+#katovi{background:var(--krem);padding:10vh 0}
+.od{margin-top:1.6em}
+.od-tabovi{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.od-tabovi button{font-family:var(--sans);background:none;border:1px solid var(--krem2);padding:11px 18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:#6d635b;transition:all .3s}
+.od-tabovi button:hover{border-color:var(--drvo2);color:var(--tamna)}
+.od-tabovi button.akt{background:var(--tamna);color:var(--bijela);border-color:var(--tamna)}
+.od-tabovi .razmak{width:14px}
+.od-tijelo{display:block}
+.od-scena{position:relative;background:var(--bijela);border:1px solid var(--krem2);box-shadow:0 30px 60px rgba(60,40,20,.08);padding:14px}
+.od-scena svg{display:block;width:100%;height:auto;user-select:none}
+.od-scena.render{padding:0;background:#1b1714;overflow:hidden}
+.od-j{cursor:pointer}
+.od-j .p{transition:fill .25s,stroke .25s;vector-effect:non-scaling-stroke;stroke-width:1}
+.od-j text{font-family:var(--sans);font-weight:600;fill:#3a322c;pointer-events:none;text-anchor:middle;dominant-baseline:central}
+.od-j.slobodno .p{fill:rgba(255,255,255,0);stroke:rgba(138,90,59,.45)}
+.od-j.slobodno:hover .p{fill:rgba(180,130,90,.32);stroke:#8a5a3b;stroke-width:2}
+.od-j.rezervirano .p{fill:rgba(226,160,30,.38);stroke:#c98a12}
+.od-j.rezervirano:hover .p{fill:rgba(226,160,30,.55)}
+.od-j.prodano .p{fill:rgba(190,45,36,.46);stroke:#a3261c}
+.od-j.prodano:hover .p{fill:rgba(190,45,36,.62)}
+.od-j text{paint-order:stroke;stroke:rgba(255,253,249,.92);stroke-width:.16;stroke-linejoin:round}
+.od-j.prodano text{fill:#fff;stroke:rgba(110,20,14,.55)}
+.od-j.odabran .p{stroke:#191614;stroke-width:2.5}
+.od-j.odabran.slobodno .p{fill:rgba(180,130,90,.42)}
+.render .od-j.slobodno .p{stroke:rgba(255,255,255,.38)}
+.render .od-j.slobodno:hover .p{fill:rgba(255,255,255,.26);stroke:#fff}
+.render .od-j.odabran .p{stroke:#fff;stroke-width:3}
+.render .od-j.odabran.slobodno .p{fill:rgba(255,255,255,.34)}
+.od-kat{font-family:var(--sans);font-size:1.25px;font-weight:600;letter-spacing:.18px;fill:#8a5a3b;text-transform:uppercase}
+.od-j .p.vrt{stroke-dasharray:4 3}
+.od-j.slobodno .p.vrt{fill:rgba(255,255,255,0)}
+.od-vrt{margin-top:10px;padding:10px 12px;background:#eef4e8;color:#3f5a35;font-size:.8rem;line-height:1.5}
+.od-napomena{font-size:.8rem;color:var(--siva);margin-top:10px}
+.od-savjet{position:absolute;pointer-events:none;background:var(--tamna);color:var(--bijela);font-size:.8rem;padding:8px 12px;white-space:nowrap;opacity:0;transform:translate(-50%,-130%);transition:opacity .15s;z-index:3}
+.od-savjet b{font-weight:600}
+.od-panel{background:var(--bijela);border:1px solid var(--krem2);border-top:0;padding:28px 30px 26px;box-shadow:0 30px 60px rgba(60,40,20,.08)}
+.od-panel.tri{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:34px;align-items:start}
+.od-s2 .od-tlocrt{margin:0}
+.od-tlocrt img{max-height:380px}
+.od-panel .gdje{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--drvo)}
+.od-panel h3{font-size:2.2rem;line-height:1.05;margin:.2em 0 .25em;color:var(--tamna)}
+.od-panel .vrsta{color:#554c45;font-size:.95rem}
+.od-status{display:inline-block;margin:12px 0 4px;padding:5px 12px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.od-status.slobodno{background:#e5f1ea;color:#1f7a4d}.od-status.rezervirano{background:#fbefd3;color:#99650a}.od-status.prodano{background:#f7dcd9;color:#a3261c}
+.od-velika{font-family:var(--serif);font-size:3rem;color:var(--drvo);line-height:1;margin:14px 0 2px}
+.od-velika small{font-size:1.3rem}
+.od-mala{font-size:.8rem;color:var(--siva)}
+.od-tlocrt{margin:16px 0 8px;background:#fff;border:1px solid var(--krem2);cursor:zoom-in}
+.od-tlocrt img{width:100%;object-fit:contain}
+.od-tablica{width:100%;border-collapse:collapse;font-size:.84rem;margin:10px 0 4px}
+.od-tablica td{padding:6px 0;border-bottom:1px solid #eee6da}
+.od-tablica td:last-child{text-align:right;white-space:nowrap}
+.od-tablica tr.zbroj td{font-weight:600;border-bottom:0;padding-top:9px}
+.od-gumbi{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.od-gumbi a,.od-gumbi button{font-family:var(--sans);text-align:center;text-decoration:none;padding:14px 18px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid var(--tamna);background:var(--tamna);color:var(--bijela);transition:background .3s}
+.od-gumbi a.wa{background:#1f7a4d;border-color:#1f7a4d}
+.od-gumbi a.wa:hover{background:#17603c}
+.od-gumbi button.sek{background:none;color:var(--tamna)}
+.od-gumbi button.sek:hover{background:var(--krem)}
+.od-brojke{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
+.od-brojke div{border:1px solid var(--krem2);padding:12px 10px;text-align:center}
+.od-brojke b{display:block;font-family:var(--serif);font-size:2rem;font-weight:500;line-height:1}
+.od-brojke span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--siva)}
+.od-katovi{width:100%;border-collapse:collapse;font-size:.84rem}
+.od-katovi td{padding:8px 0;border-bottom:1px solid #eee6da;cursor:pointer}
+.od-katovi td:last-child{text-align:right}
+.od-katovi tr:hover td{color:var(--drvo)}
+.od-legenda{display:flex;gap:26px;flex-wrap:wrap;margin-top:16px;font-size:.84rem;color:#554c45}
+.od-legenda span{display:flex;align-items:center;gap:9px}
+.od-legenda i{width:20px;height:13px;display:inline-block;border:1px solid}
+.od-zoom{position:fixed;inset:0;background:rgba(25,22,20,.92);z-index:50;display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
+.od-zoom.otv{display:flex}
+.od-zoom img{max-width:100%;max-height:100%;background:#fff;padding:18px}
+@media (max-width:1000px){.od-panel.tri{grid-template-columns:1fr;gap:18px}}
+@media (max-width:700px){.od-tabovi button{padding:9px 11px;font-size:.62rem;letter-spacing:.1em}.od-scena{padding:6px}.od-velika{font-size:2.4rem}}
+/* /ODABIR */
+.na-odabir{margin-top:34px}
+.pretprodaja-opis{max-width:760px;margin:1.6em 0 0;font-size:1.05rem;line-height:1.8;color:#554c45}
+/* GALERIJA */
+#galerija{background:var(--tamna);color:var(--krem);padding:11vh 0}
+#galerija h2{font-size:clamp(2.4rem,4vw,3.8rem);line-height:1.05}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:2.4em}
+.gal a{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;cursor:zoom-in;background:#24201d}
+.gal a.velika{grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal a:hover img{transform:scale(1.05)}
+.gal span{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;font-size:.78rem;letter-spacing:.06em;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.6));opacity:0;transition:opacity .3s}
+.gal a:hover span{opacity:1}
+.gal-pun{position:fixed;inset:0;z-index:60;background:rgba(14,12,11,.96);display:none;align-items:center;justify-content:center;touch-action:pan-y}
+.gal-pun.otv{display:flex}
+.gal-pun img{max-width:100vw;max-height:100vh;object-fit:contain;user-select:none}
+.gal-pun button{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.35);color:#fff;width:54px;height:54px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;backdrop-filter:blur(6px)}
+.gal-pun button:hover{background:rgba(255,255,255,.2)}
+.gal-pun .zatvori{top:18px;right:18px}
+.gal-pun .prev{left:18px;top:50%;transform:translateY(-50%)}
+.gal-pun .next{right:18px;top:50%;transform:translateY(-50%)}
+.gal-pun .opis{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:#fff;font-size:.85rem;letter-spacing:.08em;text-shadow:0 1px 8px rgba(0,0,0,.8);pointer-events:none}
+@media (max-width:900px){.gal{grid-template-columns:repeat(2,1fr);gap:6px}.gal span{opacity:1;font-size:.68rem;padding:20px 9px 8px}
+  .gal-pun button{width:44px;height:44px}.gal-pun .prev{left:8px}.gal-pun .next{right:8px}.gal-pun .zatvori{top:10px;right:10px}}
+/* /GALERIJA */
+@media (max-width:900px){.trake{grid-template-columns:1fr}.traka{aspect-ratio:4/3}}
+/* zaglavlje na mobitelu: logo, jezik i Pretprodaja u jednom redu, ništa ne izlazi s desnog ruba */
+@media (max-width:700px){
+  .logo-traka{padding:18px 16px}
+  .logo-traka b{font-size:1.05rem;letter-spacing:.14em;white-space:nowrap}
+  .logo-traka span{display:flex;align-items:center;gap:6px;white-space:nowrap}
+  .logo-traka a{padding:8px 11px;font-size:.62rem;letter-spacing:.14em}
+  .logo-traka a.jezik{margin-right:0;padding:8px}
+}
+/* film na uspravnom mobitelu: cijela slika u punoj širini, bez rezanja (investitor, iPhone: "preblizu") */
+@media (orientation:portrait) and (max-width:900px){
+  #film{flex-direction:column;justify-content:center;height:auto;min-height:100vh;gap:28px;padding:10vh 0}
+  #film video{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;order:2;background:#000}
+  #film .zasjena{display:none}
+  #film .preko{order:1}
+  #film.igra .preko{opacity:1}
+  #film.igra .play{visibility:hidden}
+  #film .play{width:76px;height:76px;margin-top:22px}
+}
+@media (prefers-reduced-motion:reduce){.vid{display:none}}
+
+@media (max-width:900px){
+  #uvod .sadrzaj,#resort .sadrzaj,#zgrada,.tip.akt,#lokacija,.dvije{grid-template-columns:1fr}
+  .dvije{height:auto}.dvije .kadar{height:60vh}.dvije .desno{grid-template-rows:auto}
+  #zgrada .slika,#lokacija .slika{height:55vh}
+  .mreza{grid-template-columns:1fr 1fr}
+  .cijena-velika,.placanje{grid-template-columns:1fr}
+  .tockice,.puni-ekran{display:none}
+  html{scroll-snap-type:none}
+  section{min-height:auto}
+  #naslovna,.puna,#kraj{height:100svh}
+  .tip .plan img{max-height:none;width:100%}
+}
+@media print{
+  @page{size:1600px 900px;margin:0}
+  html{scroll-snap-type:none;background:#fff}
+  section{height:900px !important;min-height:0;page-break-after:always;break-after:page}
+  .pojava{opacity:1 !important;transform:none !important}
+  .tockice,.puni-ekran,.strelica{display:none}
+  #naslovna .pozadina{animation:none;transform:none}
+  .puna .pozadina,.dvije .kadar .pozadina{transform:none !important}
+  #apartmani,#katovi,#standard,#cijene{padding:60px 0}
+  .tip{display:grid !important;grid-template-columns:1.15fr 1fr}
+  .tip:not(.akt){page-break-before:always;break-before:page;height:900px;padding-top:60px}
+  .tabovi{display:none}
+  .tip .plan img{max-height:640px}
+}
+</style>
+</head>
+<body>
+
+<nav class="tockice" id="tockice"></nav>
+<button class="puni-ekran" onclick="document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()">PUNI ZASLON</button>
+
+<!-- 1 -->
+<section id="naslovna">
+  <video class="vid" autoplay muted loop playsinline preload="auto" poster="video/spirala.jpg"><source src="video/spirala.mp4" type="video/mp4"></video>
+  <div class="zasjena"></div>
+  <div class="logo-traka"><b>DTC RESORT</b><span><a class="jezik" href="index-en.html">EN</a><a href="#kraj">Pretprodaja</a></span></div>
+  <div class="naslov-blok">
+    <div class="nad pojava">Međugorje · Bosna i Hercegovina</div>
+    <h1 class="pojava k1">DTC Resort<span>RESIDENCES</span></h1>
+    <p class="pojava k2">Apartmani uz bazen, lagunu i zatvorenu dvoranu za tenis i padel. Dom u kojem je odmor uvijek pred vratima.</p>
+  </div>
+  <div class="strelica"></div>
+</section>
+
+<!-- 2 -->
+<section id="uvod">
+  <div class="sadrzaj">
+    <div>
+      <div class="nad pojava" style="color:var(--drvo)">Resort, ne samo zgrada</div>
+      <h2 class="pojava k1">Mjesto gdje drugi dolaze na <em>odmor</em>.</h2>
+      <p class="pojava k2">DTC Resort nastaje uz Dodig Tenis Centar u Međugorju. Na jednoj parceli su apartmanska zgrada, bazen od 25 metara, laguna za djecu, bar uz vodu, zatvorena dvorana za tenis i padel i vanjski padel tereni. Vlasnici apartmana sve to imaju na nekoliko koraka od vlastitih vrata.</p>
+    </div>
+    <div class="brojke pojava k2">
+      <div><b data-broj="52">52</b><span>apartmana</span></div>
+      <div><b data-broj="25">25</b><span>m bazen</span></div>
+      <div><b>2+2</b><span>tenis i padel u dvorani</span></div>
+      <div><b data-broj="30">30</b><span>garažnih mjesta</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- film -->
+<section id="film">
+  <video id="filmvid" preload="none" playsinline poster="video/film.jpg"><source src="video/film.mp4" type="video/mp4"></video>
+  <div class="zasjena"></div>
+  <div class="preko">
+    <div class="nad pojava">Film · 52 s</div>
+    <h2 class="pojava k1">Doživite DTC Resort.</h2>
+    <button class="play pojava k2" id="play" aria-label="Pokreni film"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button>
+  </div>
+</section>
+
+<!-- GALERIJA -->
+<section id="galerija">
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo2)">Galerija</div>
+    <h2 class="pojava k1">DTC Resort u slikama.</h2>
+    <div class="gal pojava k2" id="gal"></div>
+  </div>
+</section>
+<!-- /GALERIJA -->
+
+<!-- 3 -->
+<section class="puna" id="bazen">
+  <video class="vid" muted loop playsinline preload="none" poster="video/voda.jpg" data-src="video/voda.mp4"></video>
+  <div class="zasjena"></div>
+  <div class="tekst">
+    <div class="nad pojava">DTC Lagoon</div>
+    <h2 class="pojava k1">Jutro počinje uz vodu.</h2>
+    <p class="pojava k2">Bazen 25 × 10 m, laguna s plažom za najmlađe, ležaljke, sjena pergole i bar. Sve je uređeno i održavano, a vi samo dođete.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="resort">
+  <div class="sadrzaj">
+    <div>
+      <div class="nad pojava" style="color:var(--drvo2)">Resort iz zraka</div>
+      <h2 class="pojava k1">Sve na jednom mjestu.</h2>
+      <p class="pojava k2">Kliknite na broj i pogledajte što vas čeka.</p>
+      <ul class="popis-t pojava k3" id="popis"></ul>
+      <div class="oblak" id="oblak"></div>
+    </div>
+    <div class="karta pojava k2" id="karta">
+      <img src="slike/iz-zraka.jpg" alt="DTC Resort iz zraka">
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="dvije">
+  <div class="kadar"><div class="pozadina" style="background-image:url(slike/laguna.jpg)"></div><div class="natpis"><small>Laguna</small>Plitka voda, sigurna igra</div></div>
+  <div class="desno">
+    <div class="kadar"><div class="pozadina" style="background-image:url(slike/bar.jpg)"></div><div class="natpis"><small>Bar uz bazen</small>Kava, sok, sunce</div></div>
+    <div class="kadar"><div class="pozadina" style="background-image:url(slike/lezaljke.jpg)"></div><div class="natpis"><small>Sunčalište</small>Mir između dva zamaha</div></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="puna" id="obitelj">
+  <div class="pozadina" style="background-image:url(slike/obitelj.jpg)"></div>
+  <div class="zasjena"></div>
+  <div class="tekst">
+    <div class="nad pojava">Za cijelu obitelj</div>
+    <h2 class="pojava k1">Djeca na vodi,<br>vi u hladu.</h2>
+    <p class="pojava k2">Zelenilo, šetnice i zaštićeni unutarnji vrt resorta. Automobili ostaju u garaži i na parkiralištu, dvorište pripada ljudima.</p>
+  </div>
+</section>
+
+<!-- trenuci -->
+<section id="trenuci">
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo2)">Trenuci</div>
+    <h2 class="pojava k1">Dan u resortu.</h2>
+    <div class="trake pojava k2">
+      <div class="traka"><video class="vid" muted loop playsinline preload="none" poster="video/cipele.jpg" data-src="video/cipele.mp4"></video><div class="natpis"><small>Dolazak</small>Kući, kroz vrt</div></div>
+      <div class="traka"><video class="vid" muted loop playsinline preload="none" poster="video/lamele.jpg" data-src="video/lamele.mp4"></video><div class="natpis"><small>Detalj</small>Drvo, svjetlo, sjena</div></div>
+      <div class="traka"><video class="vid" muted loop playsinline preload="none" poster="video/pije.jpg" data-src="video/pije.mp4"></video><div class="natpis"><small>Popodne</small>Sok uz bazen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="puna" id="arena">
+  <video class="vid" muted loop playsinline preload="none" poster="video/ulaz.jpg" data-src="video/ulaz.mp4"></video>
+  <div class="zasjena"></div>
+  <div class="tekst">
+    <div class="nad pojava">DTC Indoor Arena</div>
+    <h2 class="pojava k1">Tenis i padel<br>cijele godine.</h2>
+    <p class="pojava k2">Zatvorena dvorana s dva teniska i dva padel terena, uz postojeći Dodig Tenis Centar. Vani još dva padel terena. Sport, škola i rekreacija, bez obzira na vrijeme.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="dvije">
+  <div class="kadar"><video class="vid" muted loop playsinline preload="none" poster="video/padel.jpg" data-src="video/padel.mp4"></video><div class="natpis"><small>Vanjski padel</small>Dva terena uz zgradu</div></div>
+  <div class="desno">
+    <div class="kadar"><div class="pozadina" style="background-image:url(slike/arena-ulica.jpg)"></div><div class="natpis"><small>Arena</small>Drvene lamele</div></div>
+    <div class="kadar"><video class="vid" muted loop playsinline preload="none" poster="video/reket.jpg" data-src="video/reket.mp4"></video><div class="natpis"><small>Sport pred vratima</small>Od stana do terena</div></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="zgrada">
+  <div class="slika" style="position:relative"><video class="vid" muted loop playsinline preload="none" poster="video/fasada.jpg" data-src="video/fasada.mp4"></video></div>
+  <div class="opis">
+    <div class="nad pojava" style="color:var(--drvo)">DTC Residences</div>
+    <h2 class="pojava k1">Zgrada okrenuta suncu i vodi.</h2>
+    <p class="pojava k2">Četiri etaže iznad podzemne garaže. Svaki apartman na katu ima lođu, a apartmani u prizemlju izlaz na vlastitu vrtnu terasu. Dizalo vozi od garaže do zadnjeg kata.</p>
+    <ul class="crtice pojava k3">
+      <li><span>Katnost</span><b>garaža + prizemlje + 3 kata</b></li>
+      <li><span>Apartmani</span><b>36 jednosobnih i 16 dvosobnih</b></li>
+      <li><span>Garaža</span><b>30 garažnih mjesta, dizalo</b></li>
+      <li><span>Ostave</span><b>uz hodnik na svakoj etaži</b></li>
+      <li><span>Parkiralište</span><b>vanjska mjesta za stanare i goste</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="apartmani">
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo)">Apartmani</div>
+    <h2 class="pojava k1">Pametno složeni, puni svjetla.</h2>
+    <div class="tabovi pojava k2" id="tabovi">
+      <button class="akt" data-tip="a">Jednosobni</button>
+      <button data-tip="b">Dvosobni</button>
+      <button data-tip="pa">Jednosobni prizemlje</button>
+      <button data-tip="pb">Dvosobni prizemlje</button>
+    </div>
+    <div class="tip akt" data-tip="a">
+      <div class="plan"><img src="slike/tlocrt-tip-a.png" alt="Tlocrt jednosobnog apartmana"></div>
+      <div>
+        <h3>Jednosobni apartman</h3>
+        <div class="povrsina">52,37 <small>m²</small></div>
+        <div class="mala">1. – 3. kat · s lođom (lođa uračunata s koeficijentom 0,75 / 0,50)</div>
+        <ul class="sobe">
+          <li><span>Kuhinja, blagovaonica i dnevni boravak</span><span>24,76 m²</span></li>
+          <li><span>Spavaća soba</span><span>13,36 m²</span></li>
+          <li><span>Predsoblje</span><span>4,52 m²</span></li>
+          <li><span>Kupaonica</span><span>4,52 m²</span></li>
+          <li><span>Praonica / ostava</span><span>1,88 m²</span></li>
+          <li><span>Lođa</span><span>4,93 m²</span></li>
+          <li class="uk"><span>Ukupno</span><span>52,37 m²</span></li>
+        </ul>
+        <div class="oznaka-kolicina">27 apartmana na katovima</div>
+      </div>
+    </div>
+    <div class="tip" data-tip="b">
+      <div class="plan"><img src="slike/tlocrt-tip-b.png" alt="Tlocrt dvosobnog apartmana"></div>
+      <div>
+        <h3>Dvosobni apartman</h3>
+        <div class="povrsina">78,53 <small>m²</small></div>
+        <div class="mala">1. – 3. kat · s lođom (lođa uračunata s koeficijentom 0,75 / 0,50)</div>
+        <ul class="sobe">
+          <li><span>Kuhinja, blagovaonica i dnevni boravak</span><span>25,00 m²</span></li>
+          <li><span>Spavaća soba 1</span><span>14,11 m²</span></li>
+          <li><span>Spavaća soba 2</span><span>13,49 m²</span></li>
+          <li><span>Predsoblje s hodnikom</span><span>13,06 m²</span></li>
+          <li><span>Kupaonica</span><span>4,69 m²</span></li>
+          <li><span>Praonica / ostava</span><span>4,93 m²</span></li>
+          <li><span>Lođa</span><span>4,80 m²</span></li>
+          <li class="uk"><span>Ukupno</span><span>78,53 m²</span></li>
+        </ul>
+        <div class="oznaka-kolicina">12 apartmana na katovima</div>
+      </div>
+    </div>
+    <div class="tip" data-tip="pa">
+      <div class="plan"><img src="slike/tlocrt-prizemlje-a.png" alt="Tlocrt jednosobnog apartmana"></div>
+      <div>
+        <h3>Jednosobni u prizemlju</h3>
+        <div class="povrsina">45,80 <small>m²</small></div>
+        <div class="mala">Prizemlje · izlaz na vlastitu vrtnu terasu</div>
+        <ul class="sobe">
+          <li><span>Kuhinja, blagovaonica i dnevni boravak</span><span>24,76 m²</span></li>
+          <li><span>Spavaća soba</span><span>10,12 m²</span></li>
+          <li><span>Predsoblje</span><span>4,52 m²</span></li>
+          <li><span>Kupaonica</span><span>4,52 m²</span></li>
+          <li><span>Praonica / ostava</span><span>1,88 m²</span></li>
+          <li class="uk"><span>Ukupno</span><span>45,80 m²</span></li>
+        </ul>
+        <div class="oznaka-kolicina">9 apartmana u prizemlju</div>
+      </div>
+    </div>
+    <div class="tip" data-tip="pb">
+      <div class="plan"><img src="slike/tlocrt-prizemlje-b.png" alt="Tlocrt dvosobnog apartmana"></div>
+      <div>
+        <h3>Dvosobni u prizemlju</h3>
+        <div class="povrsina">68,64 <small>m²</small></div>
+        <div class="mala">Prizemlje · izlaz na vlastitu vrtnu terasu</div>
+        <ul class="sobe">
+          <li><span>Kuhinja, blagovaonica i dnevni boravak</span><span>25,04 m²</span></li>
+          <li><span>Spavaća soba 1</span><span>10,69 m²</span></li>
+          <li><span>Spavaća soba 2</span><span>10,22 m²</span></li>
+          <li><span>Predsoblje s hodnikom</span><span>13,06 m²</span></li>
+          <li><span>Kupaonica</span><span>4,59 m²</span></li>
+          <li><span>Praonica / ostava</span><span>5,04 m²</span></li>
+          <li class="uk"><span>Ukupno</span><span>68,64 m²</span></li>
+        </ul>
+        <div class="oznaka-kolicina">4 apartmana u prizemlju</div>
+      </div>
+    </div>
+    <a class="gumb na-odabir pojava k3" href="#katovi">Svi apartmani na tlocrtima etaža →</a>
+  </div>
+</section>
+
+<!-- 11 -->
+<section id="katovi"><!-- ODABIR -->
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo)">Odabir apartmana</div>
+    <h2 class="pojava k1">Odaberite svoj apartman.</h2>
+    <p class="uvodni pojava k2">Kliknite apartman na pročelju ili na tlocrtu etaže i vidjet ćete njegov tlocrt, površine i je li još slobodan.</p>
+    <div class="od pojava k2">
+      <div class="od-tabovi" id="od-tabovi"></div>
+      <div class="od-tijelo">
+        <div class="od-scena"><svg id="od-svg" xmlns="http://www.w3.org/2000/svg"></svg><div class="od-savjet" id="od-savjet"></div></div>
+        <aside class="od-panel" id="od-panel"></aside>
+      </div>
+      <div class="od-legenda" id="od-legenda"></div>
+      <div class="od-napomena" id="od-napomena"></div>
+    </div>
+  </div>
+<!-- /ODABIR --></section>
+
+<!-- 12 -->
+<section id="standard">
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo2)">Standard opremanja</div>
+    <h2 class="pojava k1">Kvaliteta koju se osjeti svaki dan.</h2>
+    <div class="mreza pojava k2">
+      <div><svg viewBox="0 0 36 36"><path d="M4 30h28M6 30V12l12-8 12 8v18"/><path d="M13 30v-9h10v9"/></svg><b>Parket</b><span>U svim sobama, dnevnom boravku, kuhinji i predsoblju.</span></div>
+      <div><svg viewBox="0 0 36 36"><path d="M6 26c4-3 8 3 12 0s8 3 12 0M6 20c4-3 8 3 12 0s8 3 12 0M6 14c4-3 8 3 12 0s8 3 12 0"/></svg><b>Podno grijanje</b><span>U kupaonici i kuhinji, svaka zona sa svojim termostatom.</span></div>
+      <div><svg viewBox="0 0 36 36"><rect x="4" y="9" width="28" height="12" rx="2"/><path d="M9 26l-2 4M18 26v4M27 26l2 4M8 17h20"/></svg><b>Klima</b><span>Multisplit sustav, vanjske jedinice skrivene na krovu.</span></div>
+      <div><svg viewBox="0 0 36 36"><rect x="6" y="5" width="24" height="26"/><path d="M18 5v26M6 18h24M10 9l5 5"/></svg><b>Aluminijska stolarija</b><span>Aluminijski prozori i vrata s troslojnim staklom. Tiho, toplo zimi i hladno ljeti.</span></div>
+      <div><svg viewBox="0 0 36 36"><path d="M18 4v28M4 18h28" opacity=".2"/><path d="M11 30V8M25 30V8M11 8h14"/></svg><b>2,80 m</b><span>Svijetla visina prostorija, više zraka i svjetla.</span></div>
+      <div><svg viewBox="0 0 36 36"><rect x="9" y="12" width="18" height="12" rx="3"/><path d="M14 18h8M18 6v6M18 24v6"/></svg><b>USB-C utičnice</b><span>Uz krevete, punjenje mobitela bez adaptera.</span></div>
+      <div><svg viewBox="0 0 36 36"><rect x="9" y="4" width="18" height="28" rx="2"/><path d="M13 11h10M13 16h10M18 26v.01"/></svg><b>Dizalo i garaža</b><span>Od garažnog mjesta do stana bez izlaska van.</span></div>
+      <div><svg viewBox="0 0 36 36"><path d="M4 30h28M8 30V18M28 30V18M4 18h28M8 14c3-6 17-6 20 0"/></svg><b>Lođa ili vrt</b><span>Svaki apartman ima svoj vanjski prostor.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="cijene">
+  <div class="sadrzaj">
+    <div class="nad pojava" style="color:var(--drvo)">Pretprodaja</div>
+    <h2 class="pojava k1">Samo 8 apartmanskih jedinica po pretprodajnoj cijeni.</h2>
+    <p class="pretprodaja-opis pojava k2">Vrijedi samo za prvih 8 apartmanskih jedinica. Prvi izbor apartmana i garažnog mjesta, ostava na poklon uz cijeli uplaćeni apartman. Rezervacija apartmana uz kaparu.</p>
+    <div class="uvjeti pojava k3"><span>Uvjeti plaćanja u pretprodaji dogovaraju se izravno s odgovornom osobom investitora.</span><a href="https://wa.me/38763415074?text=Pozdrav%2C%20zanima%20me%20pretprodaja%20DTC%20Resort%20Residences." target="_blank" rel="noopener">WhatsApp +387 63 415 074</a></div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section id="lokacija">
+  <div class="slika" style="position:relative"><div class="pozadina" style="background-image:url(slike/ulaz-parking.jpg)"></div></div>
+  <div class="opis">
+    <div class="nad pojava" style="color:var(--drvo)">Lokacija</div>
+    <h2 class="pojava k1">Međugorje, uz Dodig Tenis Centar.</h2>
+    <p class="pojava k2">Mirna lokacija uz postojeći teniski centar, s pristupom s javne ceste s juga i vlastitim parkiralištem. Međugorje godišnje posjeti više od milijun ljudi, pa je apartman ovdje i dom i dobra investicija za najam.</p>
+    <a class="gumb pojava k3" href="https://www.google.com/maps/search/?api=1&amp;query=43.200465,17.654036" target="_blank" rel="noopener">Otvori na karti</a>
+  </div>
+</section>
+
+<!-- 15 -->
+<section id="kraj">
+  <div class="pozadina" style="background-image:url(slike/noc-iz-zraka.jpg)"></div>
+  <div class="zasjena"></div>
+  <div class="tekst">
+    <div class="nad pojava">DTC Resort · Residences</div>
+    <h2 class="pojava k1">Vaš apartman<br>vas čeka.</h2>
+    <p class="pojava k2">Pretprodajna cijena vrijedi samo za prvih 8 apartmanskih jedinica. Javite se za raspored slobodnih apartmana i rezervaciju.</p>
+    <div class="kontakt pojava k3">
+      <a href="tel:+38763415074">+387 63 415 074</a>
+      <a href="https://wa.me/38763415074?text=Pozdrav%2C%20zanima%20me%20DTC%20Resort%20Residences." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:dtcresort@gmail.com?subject=DTC%20Resort%20Residences%20-%20upit">dtcresort@gmail.com</a>
+    </div>
+    <p style="margin:2.2em auto 0;font-size:.9rem;opacity:.8">Dodig Tenis Centar · Olimpijska 2, 88266 Međugorje · <a href="https://dodigtenniscenter.com" target="_blank" rel="noopener" style="color:inherit">dodigtenniscenter.com</a></p>
+    <small>Vizualizacije su informativne. Površine su neto, prema idejnom projektu; lođe su uračunate s koeficijentom.</small>
+  </div>
+</section>
+
+<script>
+// točke resorta na pogledu iz zraka (postotak širine / visine slike)
+const TOCKE = [
+  [38,13,"Apartmanska zgrada","52 apartmana na četiri etaže, podzemna garaža s dizalom."],
+  [33,39,"Bazen 25 × 10 m","Preljevni bazen za plivanje i rekreaciju, s ležaljkama uokolo."],
+  [37,53,"Laguna","Plitka voda s plažom, za najmlađe."],
+  [46,44,"Bar i pergola","Kava i osvježenje uz vodu, u hladu pergole."],
+  [63,62,"DTC Indoor Arena","Dvorana s dva teniska i dva padel terena."],
+  [33,70,"Vanjski padel","Dva terena na otvorenom."],
+  [34,88,"Parkiralište","Parkiranje za stanare i goste, ulaz s južne ceste."]
+];
+const karta=document.getElementById('karta'), oblak=document.getElementById('oblak'), popis=document.getElementById('popis');
+function odaberi(i){
+  document.querySelectorAll('.tocka,.popis-t li').forEach(e=>e.classList.remove('akt'));
+  document.querySelectorAll('[data-i="'+i+'"]').forEach(e=>e.classList.add('akt'));
+  oblak.innerHTML='<b>'+TOCKE[i][2]+'</b>'+TOCKE[i][3]; oblak.classList.add('akt');
+}
+TOCKE.forEach((t,i)=>{
+  const d=document.createElement('div'); d.className='tocka'; d.style.left=t[0]+'%'; d.style.top=t[1]+'%'; d.textContent=i+1; d.dataset.i=i;
+  d.onclick=()=>odaberi(i); d.onmouseenter=()=>odaberi(i); karta.appendChild(d);
+  const li=document.createElement('li'); li.dataset.i=i; li.innerHTML='<i>'+(i+1)+'</i>'+t[2]; li.onclick=()=>odaberi(i); li.onmouseenter=()=>odaberi(i); popis.appendChild(li);
+});
+odaberi(0);
+
+// tabovi apartmana
+document.querySelectorAll('#tabovi button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#tabovi button,.tip').forEach(e=>e.classList.remove('akt'));
+  b.classList.add('akt'); document.querySelector('.tip[data-tip="'+b.dataset.tip+'"]').classList.add('akt');
+});
+
+// pojava pri skrolu + brojke
+const sekcije=[...document.querySelectorAll('section')];
+const io=new IntersectionObserver(ul=>ul.forEach(u=>{
+  if(u.isIntersecting){
+    u.target.classList.add('vidljivo');
+    u.target.querySelectorAll('.pojava').forEach(p=>p.classList.add('vidljivo'));
+    u.target.querySelectorAll('[data-broj]').forEach(b=>{
+      if(b.dataset.gotovo) return; b.dataset.gotovo=1; const cilj=+b.dataset.broj, t0=performance.now();
+      (function k(t){const x=Math.min(1,(t-t0)/1600); b.textContent=Math.round(cilj*(1-Math.pow(1-x,3))); if(x<1) requestAnimationFrame(k);})(t0);
+    });
+    const i=sekcije.indexOf(u.target); document.querySelectorAll('.tockice a').forEach((a,j)=>a.classList.toggle('akt',j===i));
+  }
+}),{threshold:.35});
+sekcije.forEach((s,i)=>{ io.observe(s); if(!s.id) s.id='s'+i; const a=document.createElement('a'); a.href='#'+s.id; document.getElementById('tockice').appendChild(a); });
+
+// prezentacija: strelice / razmaknica / PageDown
+document.addEventListener('keydown',e=>{
+  const i=sekcije.findIndex(s=>Math.abs(s.getBoundingClientRect().top)<innerHeight/2);
+  if(['ArrowDown','PageDown',' ','ArrowRight'].includes(e.key)){e.preventDefault(); (sekcije[i+1]||sekcije[i]).scrollIntoView({behavior:'smooth'});}
+  if(['ArrowUp','PageUp','ArrowLeft'].includes(e.key)){e.preventDefault(); (sekcije[i-1]||sekcije[i]).scrollIntoView({behavior:'smooth'});}
+});
+
+// video: petlje se učitavaju i igraju tek kad su na ekranu (štedi mobilne podatke)
+const vio=new IntersectionObserver(ul=>ul.forEach(u=>{
+  const v=u.target;
+  if(u.isIntersecting){ if(v.dataset.src&&!v.src){v.src=v.dataset.src;} const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); }
+  else v.pause();
+}),{threshold:.2});
+if(!new URLSearchParams(location.search).has('snimka')) document.querySelectorAll('video.vid').forEach(v=>vio.observe(v));
+// film sa zvukom na klik
+const film=document.getElementById('film'), fv=document.getElementById('filmvid');
+document.getElementById('play').onclick=()=>{ fv.muted=false; fv.controls=true; film.classList.add('igra'); fv.play(); };
+fv.addEventListener('ended',()=>{ film.classList.remove('igra'); fv.controls=false; });
+new IntersectionObserver(ul=>ul.forEach(u=>{ if(!u.isIntersecting&&!fv.paused) fv.pause(); }),{threshold:.1}).observe(fv);
+
+// ODABIR - interaktivni odabir apartmana (status iz status.json)
+(function(){
+const PD={"katovi":[["garaza","Garaža","Garage"],["prizemlje","Prizemlje","Ground floor"],["kat1","1. kat","1st floor"],["kat2","2. kat","2nd floor"],["kat3","3. kat","3rd floor"]],"podloge":{"prizemlje":[16.2,-224.0,67.3,-198.6],"kat1":[16.2,-224.0,67.3,-198.6],"kat2":[16.2,-224.0,67.3,-198.6],"kat3":[16.2,-224.0,67.3,-198.6],"garaza":[16.2,-224.0,67.3,-198.6],"procelje-j":[15.71487496141955,-0.7,67.80487496141953,14.98],"procelje-s":[-67.8048749614195,-0.7,-15.714874961419522,14.98]},"jedinice":[{"id":"GM-01","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[17.082,-208.338,20.062,-202.338]},{"id":"GM-02","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[20.057,-208.338,23.037,-202.338]},{"id":"GM-03","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[23.282,-208.338,26.262,-202.338]},{"id":"GM-04","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[26.257,-208.338,29.237,-202.338]},{"id":"GM-05","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[29.482,-208.338,32.462,-202.338]},{"id":"GM-06","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[32.457,-208.338,35.437,-202.338]},{"id":"GM-07","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[35.682,-208.338,38.662,-202.338]},{"id":"GM-08","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[38.657,-208.338,41.637,-202.338]},{"id":"GM-09","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[41.882,-208.338,44.862,-202.338]},{"id":"GM-10","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[44.857,-208.338,47.837,-202.338]},{"id":"GM-11","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[48.082,-208.338,51.062,-202.338]},{"id":"GM-12","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[51.057,-208.338,54.037,-202.338]},{"id":"GM-13","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[54.282,-208.338,57.262,-202.338]},{"id":"GM-14","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[57.257,-208.338,60.237,-202.338]},{"id":"GM-15","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[60.482,-208.338,63.462,-202.338]},{"id":"GM-16","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[63.457,-208.338,66.437,-202.338]},{"id":"GM-17","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[63.457,-220.338,66.437,-214.338]},{"id":"GM-18","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[60.482,-220.338,63.462,-214.338]},{"id":"GM-19","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[57.257,-220.338,60.237,-214.338]},{"id":"GM-20","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[54.282,-220.338,57.262,-214.338]},{"id":"GM-21","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[51.057,-220.338,54.037,-214.338]},{"id":"GM-22","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[48.082,-220.338,51.062,-214.338]},{"id":"GM-23","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[44.857,-220.338,47.837,-214.338]},{"id":"GM-24","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[41.882,-220.338,44.862,-214.338]},{"id":"GM-25","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[32.457,-220.338,35.437,-214.338]},{"id":"GM-26","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[29.482,-220.338,32.462,-214.338]},{"id":"GM-27","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[26.257,-220.338,29.237,-214.338]},{"id":"GM-28","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[23.282,-220.338,26.262,-214.338]},{"id":"GM-29","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[20.057,-220.338,23.037,-214.338]},{"id":"GM-30","vrsta":"gm","kat":"garaza","P":17.85,"okvir":[17.082,-220.338,20.062,-214.338]},{"id":"P-01","vrsta":"stan","kat":"prizemlje","tip":"B","sobe":2,"strana":"sjever","neto":68.64,"lodja":0,"lodja_k":0,"ukupno":68.64,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.04],["Soba 1","Bedroom 1",10.69],["Soba 2","Bedroom 2",10.22],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04]],"okvir":[16.965,-210.458,26.255,-202.218],"vrt":[16.715,-201.968,26.31,-199.468],"procelje":[-26.205,0.05,-17.015,3.15],"render":[[1885.4,809.2],[2377.4,804.2],[2377.4,662.5],[1885.5,667.6]]},{"id":"P-02","vrsta":"stan","kat":"prizemlje","tip":"B","sobe":2,"strana":"sjever","neto":68.64,"lodja":0,"lodja_k":0,"ukupno":68.64,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.04],["Soba 1","Bedroom 1",10.69],["Soba 2","Bedroom 2",10.22],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04]],"okvir":[26.265,-210.458,35.555,-202.218],"vrt":[26.51,-201.968,35.452,-199.468],"procelje":[-35.505,0.05,-26.315,3.15],"render":[[1446.0,813.7],[1885.4,809.2],[1885.5,667.6],[1446.0,672.1]]},{"id":"P-03","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"sjever","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",10.12],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[35.565,-210.458,41.755,-202.218],"vrt":[35.652,-201.968,41.66,-199.468],"procelje":[-41.705,0.05,-35.615,3.15],"render":[[1150.5,816.7],[1446.0,813.7],[1446.0,672.1],[1150.5,675.1]]},{"id":"P-04","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"sjever","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",10.12],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[41.765,-210.458,47.955,-202.218],"vrt":[41.86,-201.968,47.86,-199.468],"procelje":[-47.905,0.05,-41.815,3.15],"render":[[859.5,819.7],[1150.5,816.7],[1150.5,675.1],[859.5,678.1]]},{"id":"P-05","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"sjever","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[47.965,-210.458,54.155,-202.218],"vrt":[48.06,-201.968,54.06,-199.468],"procelje":[-54.105,0.05,-48.015,3.15],"render":[[585.1,822.5],[859.5,819.7],[859.5,678.1],[585.0,680.9]]},{"id":"P-06","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"sjever","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[54.165,-210.458,60.355,-202.218],"vrt":[54.26,-201.968,60.26,-199.468],"procelje":[-60.305,0.05,-54.215,3.15],"render":[[285.1,825.6],[585.1,822.5],[585.0,680.9],[285.1,684.0]]},{"id":"P-07","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"sjever","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[60.365,-210.458,66.555,-202.218],"vrt":[60.46,-201.968,66.805,-199.468],"procelje":[-66.505,0.05,-60.415,3.15],"render":[[40.6,828.1],[285.1,825.6],[285.1,684.0],[40.6,686.6]]},{"id":"P-08","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"jug","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[60.365,-220.458,66.555,-212.217],"vrt":[60.46,-223.208,66.805,-220.708],"procelje":[60.415,0.05,66.505,3.15],"render":[[2199.9,790.1],[2398.9,790.2],[2399.5,638.4],[2200.2,639.1]]},{"id":"P-09","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"jug","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[54.165,-220.458,60.355,-212.217],"vrt":[54.26,-223.208,60.26,-220.708],"procelje":[54.215,0.05,60.305,3.15],"render":[[1870.6,789.9],[2199.9,790.1],[2200.2,639.1],[1870.5,640.3]]},{"id":"P-10","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"jug","neto":45.8,"lodja":0,"lodja_k":0,"ukupno":45.8,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.13],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[47.965,-220.458,54.155,-212.217],"vrt":[48.06,-223.208,54.06,-220.708],"procelje":[48.015,0.05,54.105,3.15],"render":[[1560.7,789.8],[1870.6,789.9],[1870.5,640.3],[1560.3,641.4]]},{"id":"P-11","vrsta":"stan","kat":"prizemlje","tip":"A","sobe":1,"strana":"jug","neto":45.79,"lodja":0,"lodja_k":0,"ukupno":45.79,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",10.12],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88]],"okvir":[41.765,-220.458,47.955,-212.217],"vrt":[41.885,-223.208,47.86,-220.708],"procelje":[41.815,0.05,47.905,3.15],"render":[[1234.4,789.7],[1560.7,789.8],[1560.3,641.4],[1233.6,642.6]]},{"id":"P-12","vrsta":"stan","kat":"prizemlje","tip":"B","sobe":2,"strana":"jug","neto":68.51,"lodja":0,"lodja_k":0,"ukupno":68.51,"prostorije":[["Predsoblje s hodnikom","Entrance hall",12.93],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.04],["Soba 1","Bedroom 1",10.69],["Soba 2","Bedroom 2",10.22],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04]],"okvir":[26.265,-220.458,35.555,-212.217],"vrt":[26.51,-223.208,35.435,-220.708],"procelje":[26.315,0.05,35.505,3.15],"render":[[497.8,789.4],[961.9,789.6],[960.9,643.5],[496.3,645.2]]},{"id":"P-13","vrsta":"stan","kat":"prizemlje","tip":"B","sobe":2,"strana":"jug","neto":68.51,"lodja":0,"lodja_k":0,"ukupno":68.51,"prostorije":[["Predsoblje s hodnikom","Entrance hall",12.93],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.04],["Soba 1","Bedroom 1",10.69],["Soba 2","Bedroom 2",10.22],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04]],"okvir":[16.965,-220.458,26.255,-212.217],"vrt":[16.715,-223.208,26.31,-220.708],"procelje":[17.015,0.05,26.205,3.15],"render":[[21.8,789.2],[497.8,789.4],[496.3,645.2],[19.8,646.9]]},{"id":"OP-01","vrsta":"ostava","kat":"prizemlje","P":4.65,"okvir":[17.085,-212.088,20.185,-210.588]},{"id":"OP-02","vrsta":"ostava","kat":"prizemlje","P":3.2,"okvir":[35.685,-215.538,36.685,-212.337]},{"id":"OP-03","vrsta":"ostava","kat":"prizemlje","P":3.2,"okvir":[36.81,-215.538,37.81,-212.337]},{"id":"OP-04","vrsta":"ostava","kat":"prizemlje","P":3.2,"okvir":[37.935,-215.538,38.935,-212.337]},{"id":"OP-05","vrsta":"ostava","kat":"prizemlje","P":2.4,"okvir":[64.835,-212.088,66.435,-210.588]},{"id":"1-01","vrsta":"stan","kat":"kat1","tip":"B","sobe":2,"strana":"sjever","neto":75.29,"lodja":4.8,"lodja_k":3.25,"ukupno":78.54,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04],["Lođa","Loggia",4.8]],"okvir":[16.965,-210.458,26.255,-200.168],"vrt":null,"procelje":[-26.205,3.25,-17.015,6.35],"render":[[1885.5,667.6],[2377.4,662.5],[2377.5,520.8],[1885.5,525.9]]},{"id":"1-02","vrsta":"stan","kat":"kat1","tip":"B","sobe":2,"strana":"sjever","neto":75.28,"lodja":4.89,"lodja_k":3.31,"ukupno":78.59,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.99],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",5.04],["Lođa","Loggia",4.89]],"okvir":[26.265,-210.458,35.555,-200.168],"vrt":null,"procelje":[-35.505,3.25,-26.315,6.35],"render":[[1446.0,672.1],[1885.5,667.6],[1885.5,525.9],[1446.0,530.4]]},{"id":"1-03","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"sjever","neto":49.05,"lodja":4.93,"lodja_k":3.33,"ukupno":52.38,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[35.565,-210.458,41.755,-200.168],"vrt":null,"procelje":[-41.705,3.25,-35.615,6.35],"render":[[1150.5,675.1],[1446.0,672.1],[1446.0,530.4],[1150.5,533.5]]},{"id":"1-04","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-210.458,47.955,-200.168],"vrt":null,"procelje":[-47.905,3.25,-41.815,6.35],"render":[[859.5,678.1],[1150.5,675.1],[1150.5,533.5],[859.5,536.5]]},{"id":"1-05","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-210.458,54.155,-200.168],"vrt":null,"procelje":[-54.105,3.25,-48.015,6.35],"render":[[585.0,680.9],[859.5,678.1],[859.5,536.5],[585.0,539.3]]},{"id":"1-06","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-210.458,60.355,-200.168],"vrt":null,"procelje":[-60.305,3.25,-54.215,6.35],"render":[[285.1,684.0],[585.0,680.9],[585.0,539.3],[285.0,542.4]]},{"id":"1-07","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-210.458,66.555,-200.168],"vrt":null,"procelje":[-66.505,3.25,-60.415,6.35],"render":[[40.6,686.6],[285.1,684.0],[285.0,542.4],[40.5,545.0]]},{"id":"1-08","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-222.508,66.555,-212.217],"vrt":null,"procelje":[60.415,3.25,66.505,6.35],"render":[[2200.2,639.1],[2399.5,638.4],[2400.1,486.4],[2200.5,487.9]]},{"id":"1-09","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-222.508,60.355,-212.217],"vrt":null,"procelje":[54.215,3.25,60.305,6.35],"render":[[1870.5,640.3],[2200.2,639.1],[2200.5,487.9],[1870.5,490.3]]},{"id":"1-10","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-222.508,54.155,-212.217],"vrt":null,"procelje":[48.015,3.25,54.105,6.35],"render":[[1560.3,641.4],[1870.5,640.3],[1870.5,490.3],[1560.0,492.7]]},{"id":"1-11","vrsta":"stan","kat":"kat1","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-222.508,47.955,-212.217],"vrt":null,"procelje":[41.815,3.25,47.905,6.35],"render":[[1233.6,642.6],[1560.3,641.4],[1560.0,492.7],[1232.9,495.1]]},{"id":"1-12","vrsta":"stan","kat":"kat1","tip":"B","sobe":2,"strana":"jug","neto":75.17,"lodja":4.8,"lodja_k":3.25,"ukupno":78.42,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.99],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",4.82],["Lođa","Loggia",4.8]],"okvir":[26.265,-222.508,35.555,-212.217],"vrt":null,"procelje":[26.315,3.25,35.505,6.35],"render":[[496.3,645.2],[960.9,643.5],[959.9,497.2],[494.8,500.7]]},{"id":"1-13","vrsta":"stan","kat":"kat1","tip":"B","sobe":2,"strana":"jug","neto":75.18,"lodja":4.8,"lodja_k":3.25,"ukupno":78.43,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.59],["Praonica / ostava","Laundry",4.82],["Lođa","Loggia",4.8]],"okvir":[16.965,-222.508,26.255,-212.217],"vrt":null,"procelje":[17.015,3.25,26.205,6.35],"render":[[19.8,646.9],[496.3,645.2],[494.8,500.7],[17.7,504.3]]},{"id":"O1-01","vrsta":"ostava","kat":"kat1","P":4.65,"okvir":[17.085,-212.088,20.185,-210.588]},{"id":"O1-02","vrsta":"ostava","kat":"kat1","P":3.2,"okvir":[35.685,-215.538,36.685,-212.337]},{"id":"O1-03","vrsta":"ostava","kat":"kat1","P":3.2,"okvir":[36.81,-215.538,37.81,-212.337]},{"id":"O1-04","vrsta":"ostava","kat":"kat1","P":3.2,"okvir":[37.935,-215.538,38.935,-212.337]},{"id":"O1-05","vrsta":"ostava","kat":"kat1","P":2.4,"okvir":[64.835,-212.088,66.435,-210.588]},{"id":"2-01","vrsta":"stan","kat":"kat2","tip":"B","sobe":2,"strana":"sjever","neto":75.28,"lodja":4.8,"lodja_k":3.25,"ukupno":78.53,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.93],["Lođa","Loggia",4.8]],"okvir":[16.965,-210.458,26.255,-200.168],"vrt":null,"procelje":[-26.205,6.45,-17.015,9.55],"render":[[1885.5,525.9],[2377.5,520.8],[2377.6,379.1],[1885.6,384.2]]},{"id":"2-02","vrsta":"stan","kat":"kat2","tip":"B","sobe":2,"strana":"sjever","neto":75.28,"lodja":4.89,"lodja_k":3.31,"ukupno":78.59,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.93],["Lođa","Loggia",4.89]],"okvir":[26.265,-210.458,35.555,-200.168],"vrt":null,"procelje":[-35.505,6.45,-26.315,9.55],"render":[[1446.0,530.4],[1885.5,525.9],[1885.6,384.2],[1446.0,388.8]]},{"id":"2-03","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"sjever","neto":49.05,"lodja":4.93,"lodja_k":3.33,"ukupno":52.38,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[35.565,-210.458,41.755,-200.168],"vrt":null,"procelje":[-41.705,6.45,-35.615,9.55],"render":[[1150.5,533.5],[1446.0,530.4],[1446.0,388.8],[1150.5,391.8]]},{"id":"2-04","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-210.458,47.955,-200.168],"vrt":null,"procelje":[-47.905,6.45,-41.815,9.55],"render":[[859.5,536.5],[1150.5,533.5],[1150.5,391.8],[859.5,394.9]]},{"id":"2-05","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-210.458,54.155,-200.168],"vrt":null,"procelje":[-54.105,6.45,-48.015,9.55],"render":[[585.0,539.3],[859.5,536.5],[859.5,394.9],[585.0,397.7]]},{"id":"2-06","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-210.458,60.355,-200.168],"vrt":null,"procelje":[-60.305,6.45,-54.215,9.55],"render":[[285.0,542.4],[585.0,539.3],[585.0,397.7],[284.9,400.8]]},{"id":"2-07","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-210.458,66.555,-200.168],"vrt":null,"procelje":[-66.505,6.45,-60.415,9.55],"render":[[40.5,545.0],[285.0,542.4],[284.9,400.8],[40.4,403.4]]},{"id":"2-08","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-222.508,66.555,-212.217],"vrt":null,"procelje":[60.415,6.45,66.505,9.55],"render":[[2200.5,487.9],[2400.1,486.4],[2400.6,333.9],[2200.9,336.2]]},{"id":"2-09","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-222.508,60.355,-212.217],"vrt":null,"procelje":[54.215,6.45,60.305,9.55],"render":[[1870.5,490.3],[2200.5,487.9],[2200.9,336.2],[1870.5,340.0]]},{"id":"2-10","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-222.508,54.155,-212.217],"vrt":null,"procelje":[48.015,6.45,54.105,9.55],"render":[[1560.0,492.7],[1870.5,490.3],[1870.5,340.0],[1559.6,343.6]]},{"id":"2-11","vrsta":"stan","kat":"kat2","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-222.508,47.955,-212.217],"vrt":null,"procelje":[41.815,6.45,47.905,9.55],"render":[[1232.9,495.1],[1560.0,492.7],[1559.6,343.6],[1232.2,347.4]]},{"id":"2-12","vrsta":"stan","kat":"kat2","tip":"B","sobe":2,"strana":"jug","neto":75.16,"lodja":4.8,"lodja_k":3.25,"ukupno":78.41,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.99],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.71],["Lođa","Loggia",4.8]],"okvir":[26.265,-222.508,35.555,-212.217],"vrt":null,"procelje":[26.315,6.45,35.505,9.55],"render":[[494.8,500.7],[959.9,497.2],[958.8,350.5],[493.3,355.9]]},{"id":"2-13","vrsta":"stan","kat":"kat2","tip":"B","sobe":2,"strana":"jug","neto":75.17,"lodja":4.8,"lodja_k":3.25,"ukupno":78.42,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.71],["Lođa","Loggia",4.8]],"okvir":[16.965,-222.508,26.255,-212.217],"vrt":null,"procelje":[17.015,6.45,26.205,9.55],"render":[[17.7,504.3],[494.8,500.7],[493.3,355.9],[15.7,361.4]]},{"id":"O2-01","vrsta":"ostava","kat":"kat2","P":4.65,"okvir":[17.085,-212.088,20.185,-210.588]},{"id":"O2-02","vrsta":"ostava","kat":"kat2","P":3.2,"okvir":[35.685,-215.538,36.685,-212.337]},{"id":"O2-03","vrsta":"ostava","kat":"kat2","P":3.2,"okvir":[36.81,-215.538,37.81,-212.337]},{"id":"O2-04","vrsta":"ostava","kat":"kat2","P":3.2,"okvir":[37.935,-215.538,38.935,-212.337]},{"id":"O2-05","vrsta":"ostava","kat":"kat2","P":2.4,"okvir":[64.835,-212.088,66.435,-210.588]},{"id":"3-01","vrsta":"stan","kat":"kat3","tip":"B","sobe":2,"strana":"sjever","neto":75.28,"lodja":4.8,"lodja_k":3.25,"ukupno":78.53,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.93],["Lođa","Loggia",4.8]],"okvir":[16.965,-210.458,26.255,-200.168],"vrt":null,"procelje":[-26.205,9.65,-17.015,12.75],"render":[[1885.6,384.2],[2377.6,379.1],[2377.7,237.4],[1885.6,242.5]]},{"id":"3-02","vrsta":"stan","kat":"kat3","tip":"B","sobe":2,"strana":"sjever","neto":75.27,"lodja":4.89,"lodja_k":3.31,"ukupno":78.58,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.06],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.99],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.93],["Lođa","Loggia",4.89]],"okvir":[26.265,-210.458,35.555,-200.168],"vrt":null,"procelje":[-35.505,9.65,-26.315,12.75],"render":[[1446.0,388.8],[1885.6,384.2],[1885.6,242.5],[1446.0,247.1]]},{"id":"3-03","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"sjever","neto":49.05,"lodja":4.93,"lodja_k":3.33,"ukupno":52.38,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.76],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[35.565,-210.458,41.755,-200.168],"vrt":null,"procelje":[-41.705,9.65,-35.615,12.75],"render":[[1150.5,391.8],[1446.0,388.8],[1446.0,247.1],[1150.5,250.2]]},{"id":"3-04","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"sjever","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-210.458,47.955,-200.168],"vrt":null,"procelje":[-47.905,9.65,-41.815,12.75],"render":[[859.5,394.9],[1150.5,391.8],[1150.5,250.2],[859.5,253.2]]},{"id":"3-05","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-210.458,54.155,-200.168],"vrt":null,"procelje":[-54.105,9.65,-48.015,12.75],"render":[[585.0,397.7],[859.5,394.9],[859.5,253.2],[584.9,256.1]]},{"id":"3-06","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"sjever","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-210.458,60.355,-200.168],"vrt":null,"procelje":[-60.305,9.65,-54.215,12.75],"render":[[284.9,400.8],[585.0,397.7],[584.9,256.1],[284.9,259.2]]},{"id":"3-07","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"sjever","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.51],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-210.458,66.555,-200.168],"vrt":null,"procelje":[-66.505,9.65,-60.415,12.75],"render":[[40.4,403.4],[284.9,400.8],[284.9,259.2],[40.3,261.8]]},{"id":"3-08","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[60.365,-222.508,66.555,-212.217],"vrt":null,"procelje":[60.415,9.65,66.505,12.75],"render":[[2200.9,336.2],[2400.6,333.9],[2401.2,181.2],[2201.2,184.3]]},{"id":"3-09","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"jug","neto":49.04,"lodja":4.93,"lodja_k":3.33,"ukupno":52.37,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.37],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[54.165,-222.508,60.355,-212.217],"vrt":null,"procelje":[54.215,9.65,60.305,12.75],"render":[[1870.5,340.0],[2200.9,336.2],[2201.2,184.3],[1870.4,189.4]]},{"id":"3-10","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[47.965,-222.508,54.155,-212.217],"vrt":null,"procelje":[48.015,9.65,54.105,12.75],"render":[[1559.6,343.6],[1870.5,340.0],[1870.4,189.4],[1559.2,194.2]]},{"id":"3-11","vrsta":"stan","kat":"kat3","tip":"A","sobe":1,"strana":"jug","neto":49.03,"lodja":4.93,"lodja_k":3.33,"ukupno":52.36,"prostorije":[["Predsoblje","Entrance hall",4.52],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.75],["Soba","Bedroom",13.36],["Kupaonica","Bathroom",4.52],["Praonica / ostava","Laundry",1.88],["Lođa","Loggia",4.93]],"okvir":[41.765,-222.508,47.955,-212.217],"vrt":null,"procelje":[41.815,9.65,47.905,12.75],"render":[[1232.2,347.4],[1559.6,343.6],[1559.2,194.2],[1231.4,199.3]]},{"id":"3-12","vrsta":"stan","kat":"kat3","tip":"B","sobe":2,"strana":"jug","neto":75.16,"lodja":4.8,"lodja_k":3.25,"ukupno":78.41,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",24.99],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.71],["Lođa","Loggia",4.8]],"okvir":[26.265,-222.508,35.555,-212.217],"vrt":null,"procelje":[26.315,9.65,35.505,12.75],"render":[[493.3,355.9],[958.8,350.5],[957.8,203.6],[491.8,210.8]]},{"id":"3-13","vrsta":"stan","kat":"kat3","tip":"B","sobe":2,"strana":"jug","neto":75.17,"lodja":4.8,"lodja_k":3.25,"ukupno":78.42,"prostorije":[["Predsoblje s hodnikom","Entrance hall",13.17],["Kuhinja, blagovaonica i dnevni boravak","Kitchen, dining and living room",25.0],["Soba 1","Bedroom 1",14.11],["Soba 2","Bedroom 2",13.49],["Kupaonica","Bathroom",4.69],["Praonica / ostava","Laundry",4.71],["Lođa","Loggia",4.8]],"okvir":[16.965,-222.508,26.255,-212.217],"vrt":null,"procelje":[17.015,9.65,26.205,12.75],"render":[[15.7,361.4],[493.3,355.9],[491.8,210.8],[13.7,218.2]]},{"id":"O3-01","vrsta":"ostava","kat":"kat3","P":4.65,"okvir":[17.085,-212.088,20.185,-210.588]},{"id":"O3-02","vrsta":"ostava","kat":"kat3","P":3.2,"okvir":[35.685,-215.538,36.685,-212.337]},{"id":"O3-03","vrsta":"ostava","kat":"kat3","P":3.2,"okvir":[36.81,-215.538,37.81,-212.337]},{"id":"O3-04","vrsta":"ostava","kat":"kat3","P":3.2,"okvir":[37.935,-215.538,38.935,-212.337]},{"id":"O3-05","vrsta":"ostava","kat":"kat3","P":2.4,"okvir":[64.835,-212.088,66.435,-210.588]}],"render_j":{"slika":"slike/odabir-render-j.jpg","w":2400,"h":990},"render_s":{"slika":"slike/odabir-render-s.jpg","w":2400,"h":990}};
+const EN=document.documentElement.lang==='en';
+const T=EN?{obr2:'Total for sale',vrt:'Comes with its own garden (artificial grass, 2.50 m deep). The garden is not included in the sale area.',sve:'All floors',proc_j:'South elevation',proc_s:'North elevation',nap_j:'South elevation, seen from the pool.',nap_s:'North elevation.',stan:'Apartment',gm:'Parking space',ostava:'Storage room',
+  jed:'One-bedroom apartment',dvo:'Two-bedroom apartment',tip:'type',jug:'south',sjever:'north',
+  slobodno:'Available',rezervirano:'Reserved',prodano:'Sold',neto:'Living area',lodja:'Loggia',
+  obr:'Total for sale (loggia counted at its reduced rate)',ukupno:'Total',upit:'Ask about this apartment',
+  upit_gm:'Ask about this space',link:'Copy link',kopirano:'Link copied',na_tlocrtu:'Show on the floor plan',
+  na_proc:'Show on the elevation',prodan:'This unit has been sold.',klik:'Click an apartment on the elevation or on a floor plan.',
+  od:'of',apart:'apartments',po_katu:'Available by floor',gm_p:'Parking space in the underground garage.',
+  os_p:'Storage room on the floor, next to the corridor.',wa:'Hello, I am interested in',m2:'m²',
+  sl_leg:'Available',rz_leg:'Reserved',pr_leg:'Sold',povecaj:'Click to enlarge'}
+ :{obr2:'Ukupno za prodaju',vrt:'Uz apartman ide vrt (umjetna trava, dubina 2,50 m). Vrt ne ulazi u prodajnu površinu.',sve:'Sve etaže',proc_j:'Pročelje jug',proc_s:'Pročelje sjever',nap_j:'Južno pročelje, pogled od bazena.',nap_s:'Sjeverno pročelje.',stan:'Apartman',gm:'Garažno mjesto',ostava:'Ostava',
+  jed:'Jednosobni apartman',dvo:'Dvosobni apartman',tip:'tip',jug:'jug',sjever:'sjever',
+  slobodno:'Slobodno',rezervirano:'Rezervirano',prodano:'Prodano',neto:'Stambena površina',lodja:'Lođa',
+  obr:'Ukupno za prodaju (lođa s umanjenim koeficijentom)',ukupno:'Ukupno',upit:'Upit za ovaj apartman',
+  upit_gm:'Upit za ovo mjesto',link:'Kopiraj link',kopirano:'Link je kopiran',na_tlocrtu:'Pogledaj na tlocrtu etaže',
+  na_proc:'Pogledaj na pročelju',prodan:'Ova jedinica je prodana.',klik:'Kliknite apartman na pročelju ili na tlocrtu etaže.',
+  od:'od',apart:'apartmana',po_katu:'Slobodno po etažama',gm_p:'Parkirno mjesto u podzemnoj garaži.',
+  os_p:'Ostava na etaži, uz hodnik.',wa:'Pozdrav, zanima me',m2:'m²',
+  sl_leg:'Slobodno',rz_leg:'Rezervirano',pr_leg:'Prodano',povecaj:'Kliknite za uvećanje'};
+const KAT={};PD.katovi.forEach(k=>KAT[k[0]]=EN?k[2]:k[1]);
+const f=v=>EN?v.toFixed(2):v.toFixed(2).replace('.',',');
+const J={};PD.jedinice.forEach(j=>J[j.id]=j);
+let STATUS={prodano:[],rezervirano:[]};
+const st=id=>STATUS.prodano.includes(id)?'prodano':STATUS.rezervirano.includes(id)?'rezervirano':'slobodno';
+const PF=j=>j.render?(j.strana==='jug'?'procelje-j':'procelje-s'):null;   // pročelje (render) na kojem je stan
+const POGLEDI=[['sve',T.sve],['procelje-j',T.proc_j],['procelje-s',T.proc_s],null,...PD.katovi.map(k=>[k[0],KAT[k[0]]])];
+let pogled='sve', odabran=null;
+const svg=document.getElementById('od-svg'), panel=document.getElementById('od-panel'), savjet=document.getElementById('od-savjet');
+const NS='http://www.w3.org/2000/svg';
+const el=(n,a,r)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(r)r.appendChild(e);return e;};
+const ime=j=>j.vrsta==='stan'?T.stan+' '+j.id:j.vrsta==='gm'?T.gm+' '+j.id:T.ostava+' '+j.id;
+const pov=j=>j.vrsta==='stan'?j.ukupno:j.P;
+// tabovi
+const tb=document.getElementById('od-tabovi');
+POGLEDI.forEach(p=>{if(!p){const r=document.createElement('span');r.className='razmak';tb.appendChild(r);return;}
+  const b=document.createElement('button');b.textContent=p[1];b.dataset.p=p[0];b.onclick=()=>{pogled=p[0];crtaj();};tb.appendChild(b);});
+function crtaj(){
+  tb.querySelectorAll('button').forEach(b=>b.classList.toggle('akt',b.dataset.p===pogled));
+  svg.innerHTML='';
+  const proc=pogled.startsWith('procelje');
+  svg.parentNode.classList.toggle('render',proc);
+  document.getElementById('od-napomena').textContent=proc?(pogled==='procelje-j'?T.nap_j:T.nap_s):'';
+  let lista;
+  if(proc){
+    const R=PD['render_'+pogled.slice(-1)];
+    svg.setAttribute('viewBox','0 0 '+R.w+' '+R.h);
+    el('image',{href:R.slika,x:0,y:0,width:R.w,height:R.h},svg);
+    lista=PD.jedinice.filter(j=>PF(j)===pogled);
+  } else {
+    // jedna etaža ili sve etaže odjednom (2 stupca: 3.|2. kat, 1. kat|prizemlje, garaža)
+    const sve=pogled==='sve', etaze=sve?['kat3','kat2','kat1','prizemlje','garaza']:[pogled];
+    const ok0=PD.podloge[etaze[0]], W=ok0[2]-ok0[0], H=ok0[3]-ok0[1], NAT=sve?3.2:0, RAZ=sve?3:0;
+    const stup=sve?2:1, redova=Math.ceil(etaze.length/stup);
+    svg.setAttribute('viewBox','0 0 '+(stup*W+(stup-1)*RAZ)+' '+(redova*(H+NAT)+(redova-1)*RAZ));
+    lista=[];
+    etaze.forEach((k,i)=>{
+      const ok=PD.podloge[k], dx=(i%stup)*(W+RAZ), dy=Math.floor(i/stup)*(H+NAT+RAZ);
+      if(sve){const n=el('text',{x:dx,y:dy+2.2,'class':'od-kat'},svg);n.textContent=KAT[k];}
+      const gr=el('g',{transform:'translate('+(dx-ok[0])+','+(dy+NAT+ok[3])+')'},svg);
+      el('image',{href:'slike/odabir-'+k+'.png',x:ok[0],y:-ok[3],width:W,height:H,preserveAspectRatio:'none'},gr);
+      PD.jedinice.filter(j=>j.kat===k).forEach(j=>lista.push([j,gr]));
+    });
+  }
+  lista.forEach(q=>{
+    const j=proc?q:q[0], roditelj=proc?svg:q[1];
+    const g=el('g',{'class':'od-j '+st(j.id)+(j.id===odabran?' odabran':''),'data-id':j.id},roditelj);
+    if(proc) el('polygon',{'class':'p',points:j.render.map(q=>q.join(',')).join(' ')},g);
+    else {
+      const r=j.okvir;
+      el('rect',{'class':'p',x:r[0],y:-r[3],width:r[2]-r[0],height:r[3]-r[1]},g);
+      if(j.vrt){const v=j.vrt;el('rect',{'class':'p vrt',x:v[0],y:-v[3],width:v[2]-v[0],height:v[3]-v[1]},g);}
+      const vel=pogled==='sve'?1.45:1, fs=(j.vrsta==='ostava'?.42:j.vrsta==='gm'?.6:.85)*vel;
+      const t=el('text',{x:(r[0]+r[2])/2,y:-(r[1]+r[3])/2,'font-size':fs},g);t.textContent=j.vrsta==='ostava'?j.id.replace(/^O[P0-9]-/,''):(j.vrsta==='gm'&&pogled==='sve')?j.id.slice(3):j.id;
+    }
+    g.addEventListener('click',()=>odaberi(j.id,false));
+    g.addEventListener('mousemove',e=>{const b=svg.parentNode.getBoundingClientRect();savjet.style.left=(e.clientX-b.left)+'px';savjet.style.top=(e.clientY-b.top)+'px';
+      savjet.innerHTML='<b>'+ime(j)+'</b> · '+f(pov(j))+' m² · '+T[st(j.id)];savjet.style.opacity=1;});
+    g.addEventListener('mouseleave',()=>savjet.style.opacity=0);
+  });
+}
+function red(a,b,z){return '<tr'+(z?' class="zbroj"':'')+'><td>'+a+'</td><td>'+b+'</td></tr>';}
+function odaberi(id,skrol,tiho){
+  const j=J[id]; if(!j) return;
+  odabran=id;
+  if(pogled.startsWith('procelje')){ if(PF(j)!==pogled) pogled=PF(j)||j.kat; }
+  else if(pogled!=='sve'&&pogled!==j.kat) pogled=j.kat;
+  crtaj();
+  const s=st(id);
+  let h='<div class="od-s1"><div class="gdje">'+KAT[j.kat]+(j.strana?' · '+T[j.strana]:'')+'</div><h3>'+ime(j)+'</h3>';
+  if(j.vrsta==='stan') h+='<div class="vrsta">'+(j.sobe===2?T.dvo:T.jed)+' · '+T.tip+' '+j.tip+'</div>';
+  h+='<span class="od-status '+s+'">'+T[s]+'</span>';
+  h+='<div class="od-velika">'+f(pov(j))+' <small>m²</small></div>';
+  if(j.vrsta==='stan'){
+    h+='<div class="od-mala">'+(j.lodja?T.obr:T.obr2)+'</div>';
+    if(j.vrt) h+='<div class="od-vrt">'+T.vrt+'</div>';
+  } else h+='<div class="od-mala" style="margin-top:6px">'+(j.vrsta==='gm'?T.gm_p:T.os_p)+'</div>';
+  h+='<div class="od-gumbi">';
+  if(s!=='prodano'){
+    const tx=encodeURIComponent(T.wa+' '+ime(j).toLowerCase().replace(/^./,c=>EN?c.toUpperCase():c)+' ('+f(pov(j))+' m²), DTC Resort. '+location.origin+location.pathname+'?stan='+j.id);
+    h+='<a class="wa" target="_blank" rel="noopener" href="https://wa.me/38763415074?text='+tx+'">'+(j.vrsta==='stan'?T.upit:T.upit_gm)+'</a>';
+  } else h+='<div class="od-mala">'+T.prodan+'</div>';
+  if(j.render) h+='<button class="sek" id="od-prebaci">'+(pogled.startsWith('procelje')?T.na_tlocrtu:T.na_proc)+'</button>';
+  else if(j.vrsta==='stan'&&pogled!==j.kat) h+='<button class="sek" id="od-prebaci">'+T.na_tlocrtu+'</button>';
+  h+='<button class="sek" id="od-link">'+T.link+'</button></div></div>';
+  if(j.vrsta==='stan'){
+    h+='<div class="od-s2"><div class="od-tlocrt" title="'+T.povecaj+'"><img src="slike/'+(EN?'stan-en':'stan')+'/'+j.id+'.png" alt="'+ime(j)+'"></div></div>';
+    h+='<div class="od-s3"><table class="od-tablica">'+j.prostorije.filter(p=>!/^Lo/.test(p[0])).map(p=>red(EN?p[1]:p[0],f(p[2])+' m²')).join('')+
+       red(T.neto,f(j.neto)+' m²',1)+(j.lodja?red(T.lodja+' ('+f(j.lodja)+' m²)',f(j.lodja_k)+' m²'):'')+red(T.ukupno,f(j.ukupno)+' m²',1)+'</table></div>';
+  }
+  panel.className='od-panel'+(j.vrsta==='stan'?' tri':'');
+  panel.innerHTML=h;
+  const pr=document.getElementById('od-prebaci');
+  if(pr) pr.onclick=()=>{pogled=(pogled.startsWith('procelje')||!j.render)?j.kat:PF(j);odaberi(id);};
+  document.getElementById('od-link').onclick=e=>{const u=location.origin+location.pathname+'?stan='+j.id+'#katovi';
+    (navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>{e.target.textContent=T.kopirano;},()=>prompt('',u));};
+  const tl=panel.querySelector('.od-tlocrt'); if(tl) tl.onclick=()=>{zoom.querySelector('img').src=tl.querySelector('img').src;zoom.classList.add('otv');};
+  if(tiho) return;
+  if(!SNIMKA) history.replaceState(null,'','?stan='+j.id+'#katovi');
+  if(skrol) document.getElementById('katovi').scrollIntoView();
+  else if(!SNIMKA){const b=panel.getBoundingClientRect();if(b.top>innerHeight*.6) window.scrollBy({top:b.top-innerHeight*.35,behavior:'smooth'});}
+}
+function sazetak(){
+  const st_=PD.jedinice.filter(j=>j.vrsta==='stan');
+  const n={slobodno:0,rezervirano:0,prodano:0};st_.forEach(j=>n[st(j.id)]++);
+  let h='<div class="od-s1"><div class="gdje">DTC Resort · Residences</div><h3>'+st_.length+' '+T.apart+'</h3><div class="vrsta">'+T.klik+'</div></div><div class="od-s2">';
+  h+='<div class="od-brojke"><div><b style="color:#1f7a4d">'+n.slobodno+'</b><span>'+T.slobodno+'</span></div><div><b style="color:#99650a">'+n.rezervirano+'</b><span>'+T.rezervirano+'</span></div><div><b style="color:#a3261c">'+n.prodano+'</b><span>'+T.prodano+'</span></div></div>';
+  h+='</div><div class="od-s3"><div class="od-mala" style="margin-bottom:6px">'+T.po_katu+'</div><table class="od-katovi">';
+  PD.katovi.slice(1).forEach(k=>{const u=st_.filter(j=>j.kat===k[0]);const s=u.filter(j=>st(j.id)==='slobodno').length;
+    h+='<tr data-k="'+k[0]+'"><td>'+KAT[k[0]]+'</td><td>'+s+' '+T.od+' '+u.length+'</td></tr>';});
+  panel.className='od-panel tri';
+  panel.innerHTML=h+'</table></div>';
+  panel.querySelectorAll('tr[data-k]').forEach(r=>r.onclick=()=>{pogled=r.dataset.k;crtaj();});
+}
+document.getElementById('od-legenda').innerHTML=[['slobodno','rgba(180,130,90,.3)','#8a5a3b',T.sl_leg],['rezervirano','rgba(232,170,40,.5)','#c98a12',T.rz_leg],['prodano','rgba(196,48,38,.6)','#a3261c',T.pr_leg]]
+  .map(l=>'<span><i style="background:'+l[1]+';border-color:'+l[2]+'"></i>'+l[3]+'</span>').join('');
+const zoom=document.createElement('div');zoom.className='od-zoom';zoom.innerHTML='<img alt="">';zoom.onclick=()=>zoom.classList.remove('otv');document.body.appendChild(zoom);
+const SNIMKA=new URLSearchParams(location.search).has('snimka');
+function kreni(){const id=new URLSearchParams(location.search).get('stan');
+  if(id&&J[id]){const j=J[id];pogled=PF(j)||j.kat;odaberi(id,true);} else {crtaj();sazetak();}}
+// status: objavljeni list "Web" iz tablice prodaje (Google Drive, CSV: oznaka,status); ako nije postavljen ili ne
+// odgovara, status.json. Osvježava se svake 2 minute dok je stranica otvorena.
+const STATUS_CSV='https://script.google.com/macros/s/AKfycbwBCPhb7KUfDCxOJsjPTAl_MdMVvLYmCMZqtQIeMyEoFDGJYQNtVf5VlC5Nshkr4Q91/exec';
+function ucitajStatus(prvi){
+  const izJson=()=>fetch('status.json?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(d=>({prodano:d.prodano||[],rezervirano:d.rezervirano||[]}));
+  const izCsv=()=>fetch(STATUS_CSV+(STATUS_CSV.includes('?')?'&':'?')+'v='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok) throw 0;return r.text();}).then(t=>{
+    t=t.trim();
+    if(t.startsWith('{')){const d=JSON.parse(t);return {prodano:d.prodano||[],rezervirano:d.rezervirano||[]};}   // Apps Script iz tablice
+    const o={prodano:[],rezervirano:[]};
+    t.split(String.fromCharCode(10)).forEach(l=>{const c=l.split(',').map(x=>x.replace(/^"|"$/g,'').trim());const s=(c[1]||'').toLowerCase();
+      if(s.startsWith('prodan')) o.prodano.push(c[0]); else if(s.startsWith('rezerv')) o.rezervirano.push(c[0]);});
+    return o;});
+  return (STATUS_CSV&&!SNIMKA?izCsv().catch(izCsv).catch(()=>prvi?izJson():STATUS):izJson()).then(d=>{STATUS=d;}).catch(()=>{});
+}
+function osvjezi(){ const j=odabran&&J[odabran];
+  if(j&&(pogled.startsWith('procelje')?PF(j)===pogled:(pogled==='sve'||pogled===j.kat))) odaberi(odabran,false,true);
+  else {crtaj(); if(!j) sazetak();} }
+ucitajStatus(true).finally(kreni);
+if(STATUS_CSV&&!SNIMKA) setTimeout(()=>ucitajStatus().then(osvjezi),6000);   // ako prvi dohvat nije uspio (rezervni status može kasniti)
+if(!SNIMKA) setInterval(()=>ucitajStatus().then(osvjezi),120000);
+})();
+// /ODABIR
+// GALERIJA - mreža rendera, klik = preko cijelog zaslona, strelice / povlačenje za listanje
+(function(){
+const EN=document.documentElement.lang==='en';
+const G=[
+['slike/gal-01.jpg','slike/gal-01-m.jpg','Zgrada i laguna','The building and the lagoon'],
+['slike/gal-02.jpg','slike/gal-02-m.jpg','Apartmani uz bazen','Apartments by the pool'],
+['slike/gal-03.jpg','slike/gal-03-m.jpg','Laguna za djecu','The children\'s lagoon'],
+['slike/gal-04.jpg','slike/gal-04-m.jpg','Terasa uz lagunu','Terrace by the lagoon'],
+['slike/gal-05.jpg','slike/gal-05-m.jpg','Ležaljke u hladu','Loungers in the shade'],
+['slike/gal-06.jpg','slike/gal-06-m.jpg','Bazen od 25 metara','The 25-metre pool'],
+['slike/gal-07.jpg','slike/gal-07-m.jpg','Bazen i dvorana','The pool and the arena'],
+['slike/gal-08.jpg','slike/gal-08-m.jpg','Sunčalište','Sun deck'],
+['slike/gal-09.jpg','slike/gal-09-m.jpg','Vrt uz bazen','Poolside garden'],
+['slike/gal-10.jpg','slike/gal-10-m.jpg','Pergola uz vodu','Pergola by the water'],
+['slike/gal-11.jpg','slike/gal-11-m.jpg','Bar uz bazen','Poolside bar'],
+['slike/gal-12.jpg','slike/gal-12-m.jpg','DTC Indoor Arena, ulaz','DTC Indoor Arena, entrance'],
+['slike/gal-13.jpg','slike/gal-13-m.jpg','DTC Indoor Arena','DTC Indoor Arena'],
+['slike/gal-14.jpg','slike/gal-14-m.jpg','Padel tereni','Padel courts'],
+['slike/gal-15.jpg','slike/gal-15-m.jpg','Padel i apartmani','Padel and the apartments'],
+['slike/gal-16.jpg','slike/gal-16-m.jpg','Sjeverno pročelje','North elevation'],
+['slike/gal-17.jpg','slike/gal-17-m.jpg','Resort iz zraka','The resort from above'],
+['slike/gal-18.jpg','slike/gal-18-m.jpg','Noć iz zraka','Night from above'],
+['slike/gal-19.jpg','slike/gal-19-m.jpg','Bazen noću','The pool at night']
+];
+const gal=document.getElementById('gal'); if(!gal) return;
+G.forEach((g,i)=>{const a=document.createElement('a');a.href=g[0];if(i===0)a.className='velika';
+  a.innerHTML='<img src="'+(i===0?g[0]:g[1])+'" alt="'+(EN?g[3]:g[2])+'" loading="lazy"><span>'+(EN?g[3]:g[2])+'</span>';
+  a.onclick=e=>{e.preventDefault();otvori(i);};gal.appendChild(a);});
+const pun=document.createElement('div');pun.className='gal-pun';
+pun.innerHTML='<img alt=""><button class="zatvori" aria-label="Zatvori">&times;</button><button class="prev" aria-label="Prethodna">&#8249;</button><button class="next" aria-label="Sljedeća">&#8250;</button><div class="opis"></div>';
+document.body.appendChild(pun);
+const slika=pun.querySelector('img'), opis=pun.querySelector('.opis'); let k=0;
+function pokazi(){slika.src=G[k][0];opis.textContent=(EN?G[k][3]:G[k][2])+'  ·  '+(k+1)+' / '+G.length;
+  const n=new Image();n.src=G[(k+1)%G.length][0];}
+function otvori(i){k=i;pokazi();pun.classList.add('otv');document.documentElement.style.overflow='hidden';}
+function zatvori(){pun.classList.remove('otv');document.documentElement.style.overflow='';}
+function korak(d){k=(k+d+G.length)%G.length;pokazi();}
+pun.querySelector('.zatvori').onclick=zatvori;
+pun.querySelector('.prev').onclick=e=>{e.stopPropagation();korak(-1);};
+pun.querySelector('.next').onclick=e=>{e.stopPropagation();korak(1);};
+pun.onclick=e=>{if(e.target===pun) zatvori();};
+slika.onclick=()=>korak(1);
+// tipke hvata galerija dok je otvorena (inače strelice listaju odjeljke prezentacije)
+window.addEventListener('keydown',e=>{if(!pun.classList.contains('otv')) return;
+  if(e.key==='Escape') zatvori(); else if(e.key==='ArrowRight'||e.key===' ') korak(1); else if(e.key==='ArrowLeft') korak(-1); else return;
+  e.preventDefault();e.stopImmediatePropagation();},true);
+let x0=null;
+pun.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+pun.addEventListener('touchend',e=>{if(x0===null) return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>45) korak(dx<0?1:-1);});
+})();
+// /GALERIJA
+// snimka jednog odjeljka (?snimka=N) - za PDF: samo taj odjeljak, sve odmah vidljivo, bez animacija
+const q=new URLSearchParams(location.search);
+if(q.has('snimka')){
+  const n=+q.get('snimka'); document.documentElement.style.scrollSnapType='none';
+  document.querySelectorAll('.tockice,.puni-ekran,.strelica').forEach(e=>e.style.display='none');
+  sekcije.forEach((s,i)=>{ if(i!==n) s.style.display='none'; else { s.style.height='100vh'; s.style.minHeight='100vh'; } });
+  document.querySelectorAll('section,.pojava').forEach(e=>e.classList.add('vidljivo'));
+  document.querySelectorAll('.pozadina').forEach(e=>{e.style.animation='none';e.style.transition='none';e.style.transform='none';});
+  document.querySelectorAll('.pojava').forEach(e=>{e.style.transition='none';});
+  if(q.has('tip')) document.querySelector('#tabovi button[data-tip="'+q.get('tip')+'"]').click();
+  if(q.has('t')) odaberi(+q.get('t'));
+  document.querySelectorAll('[data-broj]').forEach(b=>{b.dataset.gotovo=1; b.textContent=b.dataset.broj;});
+}
+// PDF ispis: sve odmah vidljivo
+if(location.search.includes('pdf')) document.querySelectorAll('section,.pojava').forEach(e=>e.classList.add('vidljivo'));
+</script>
+</body>
+</html>
